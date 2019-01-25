@@ -1,0 +1,488 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+a:hover,
+a:active,
+a:link,
+a:visited {
+  color: #3aaffe;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#update-licence #address-page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#update-licence {
+  background: #eee;
+}
+
+.header-process {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  background: #fff;
+}
+
+.header-process .process-item {
+  flex: 1;
+  line-height: 50px;
+  text-align: center;
+  color: #3aaffe;
+  position: relative;
+}
+
+.header-process .process-item span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+}
+
+.header-process .process-item.active {
+  color: #fff;
+  background: #3aaffe;
+}
+
+.header-process .process-item.active:after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-top: 25px solid #fff;
+  border-bottom: 25px solid #fff;
+  border-left: 10px solid #3aaffd;
+  top: 0;
+  right: -12px;
+  z-index: 1;
+}
+
+.header-process .process-item:after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-top: 25px solid #fff;
+  border-bottom: 25px solid #fff;
+  border-left: 10px solid transparent;
+  border-right: 2px solid #fff;
+  top: -1px;
+  right: -1px;
+  z-index: 2;
+}
+
+.banner {
+  width: 100%;
+}
+
+.banner img {
+  width: 100%;
+  display: block;
+}
+
+.upload-pic {
+  width: 100%;
+  display: flex;
+  background: #fff;
+}
+
+.upload-pic .upload-pic-item {
+  width: 20%;
+  padding: 15px 10px;
+}
+
+.upload-pic .upload-pic-item .upload-btn {
+  width: 100%;
+  height: 48px;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.upload-pic .upload-pic-item .upload-btn .upload {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.upload-pic .upload-pic-item .upload-btn .upload-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-pic .upload-pic-item .upload-btn .upload-icon span {
+  width: 30px;
+  height: 30px;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  font-size: 14px;
+  color: #999;
+}
+
+.upload-pic .upload-pic-item .upload-text {
+  width: 100%;
+  text-align: center;
+  color: #777;
+  font-size: 16px;
+  padding-top: 5px;
+}
+
+.upload-pic .mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+}
+
+.upload-pic .mask img {
+  width: 90%;
+  margin-top: 20%;
+}
+
+.upload-pic .mask div {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-pic .mask div button {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  letter-spacing: 10px;
+  border-radius: 10px;
+  color: #3aafc0;
+  outline: none;
+  border: 0;
+}
+
+.upload-pic .mask div button:first-child {
+  border-radius: 10px 10px 0 0;
+}
+
+.upload-pic .mask div button:nth-child(2) {
+  border-radius: 0 0 10px 10px;
+}
+
+.upload-pic .mask div button:last-child {
+  margin: 10px 0;
+}
+
+#type-model {
+  width: 100%;
+}
+
+.introduction {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  overflow: auto;
+}
+
+.service-list {
+  width: 100%;
+  background: #fff;
+  margin: 10px 0;
+  padding-left: 10px;
+}
+
+.service-list .service-item {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  color: #555;
+  padding-right: 10px;
+}
+
+.service-list .service-item.service-type .type-change {
+  width: 80px;
+  display: flex;
+}
+
+.service-list .service-item.service-type .type-change span {
+  flex: 1;
+  text-align: center;
+}
+
+.service-list .service-item.service-type .type-change .type-icon {
+  font-family: "楷体";
+  color: #999;
+  font-size: 18px;
+}
+
+.service-list .service-item.service-issue-city .city-text, .service-list .service-item.service-update-city .city-text {
+  position: relative;
+  height: 100%;
+  padding-right: 50px;
+}
+
+.service-list .service-item.service-issue-city .city-text .city-help, .service-list .service-item.service-update-city .city-text .city-help {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-list .service-item.service-issue-city .city-text .city-help span, .service-list .service-item.service-update-city .city-text .city-help span {
+  width: 18px;
+  height: 18px;
+  background: #ccc;
+  color: #fff;
+  text-align: center;
+  line-height: 18px;
+  border-radius: 50%;
+}
+
+.service-list .service-item.service-issue-city .city-change, .service-list .service-item.service-update-city .city-change {
+  color: #999;
+}
+
+.service-list .service-item.service-charge {
+  border: 0;
+}
+
+.service-list .service-item.service-charge .charge-price {
+  color: red;
+}
+
+.discounts {
+  width: 100%;
+  padding: 0 10px;
+  height: 50px;
+  display: flex;
+  background: #fff;
+  justify-content: space-between;
+  align-items: center;
+  color: #555;
+}
+
+.discounts .discounts-find .discounts-icon {
+  font-family: "楷体";
+  color: #999;
+  font-size: 18px;
+}
+
+.FAQ {
+  width: 100%;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  font-size: 14px;
+}
+
+.FAQ a {
+  display: inline-block;
+  height: 100%;
+  padding: 3px 10px;
+}
+
+.footer-pay {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+.footer-pay .pay-text {
+  flex: 1;
+  padding: 0 10px;
+  color: #555;
+}
+
+.footer-pay .pay-text .pay-price {
+  color: red;
+}
+
+.footer-pay .pay-btn {
+  width: 120px;
+  height: 100%;
+}
+
+.footer-pay .pay-btn button {
+  width: 100%;
+  height: 100%;
+  background: #999;
+  color: #fff;
+  outline: none;
+  border: 0;
+  font-size: 16px;
+}
+
+.custom {
+  position: fixed;
+  right: 15px;
+  bottom: 60px;
+  width: 50px;
+  z-index: 99;
+}
+
+.custom img {
+  width: 100%;
+}
+
+.address-title {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  color: #999;
+  background: #eee;
+  font-size: 14px;
+}
+
+#address-page {
+  width: 100%;
+  height: 100%;
+  background: #eee;
+}
+
+.harvest-address {
+  width: 100%;
+  padding-left: 10px;
+  background: #fff;
+}
+
+.harvest-address .contact-item {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  color: #555;
+  padding-right: 10px;
+}
+
+.harvest-address .contact-item.address-city .city-text {
+  height: 100%;
+}
+
+.harvest-address .contact-item.address-city .city-change {
+  height: 100%;
+  flex: 1;
+  text-align: right;
+}
+
+.harvest-address .contact-item.detailed-address .detailed-text {
+  height: 100%;
+}
+
+.harvest-address .contact-item.detailed-address .detailed-change {
+  flex: 1;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.harvest-address .contact-item.detailed-address .detailed-change input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  text-align: right;
+}
+
+.harvest-address .contact-item.contact-number .number-text {
+  height: 100%;
+}
+
+.harvest-address .contact-item.contact-number .number-change {
+  flex: 1;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.harvest-address .contact-item.contact-number .number-change input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  text-align: right;
+}
+
+.harvest-address .contact-item.contact-man {
+  border: 0;
+}
+
+.harvest-address .contact-item.contact-man .man-text {
+  height: 100%;
+}
+
+.harvest-address .contact-item.contact-man .man-change {
+  flex: 1;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.harvest-address .contact-item.contact-man .man-change input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  text-align: right;
+}
+
+.sure-btn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.sure-btn button {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  background: #999;
+  border: 0;
+  color: #fff;
+}
+
+.sure-btn button.active {
+  background: limegreen;
+}
+
+.red-packet {
+  position: fixed;
+  right: 15px;
+  bottom: 120px;
+  width: 50px;
+  z-index: 99;
+}
+
+.red-packet img {
+  width: 100%;
+}

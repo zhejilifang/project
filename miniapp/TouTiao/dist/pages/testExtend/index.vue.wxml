@@ -1,0 +1,6 @@
+<template name="2e2aaf9c">
+  <view class="_div data-v-e0c7a636 counter-warp">
+    <view class="_p data-v-e0c7a636">测试继承</view>
+    <view class="_p data-v-e0c7a636">ver: {{ ver }}</view> <button bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-e0c7a636">testFun</button> <button bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-e0c7a636">testFun2</button>
+  </view>
+</template>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>补换驾照</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'>
+    <meta http - equiv='X-UA-Compatible' content='ie=edge,Chrome=1'>
+    <meta name="referrer" content="no-referrer" />
+    <script>
+        // 字体计算
+        var fun = function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    //docEl.style.fontSize = (clientWidth / 750) * 100 + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        };
+        fun(document, window);
+        // 引入移动端调试工具
+        (function() {
+            var script = document.createElement('script');
+            script.src = "//cdn.jsdelivr.net/npm/eruda";
+            document.head.appendChild(script);
+            script.onload = function() {
+                eruda.init()
+            }
+        })();
+    </script>
+    <script>
+        // 引入 Udesk 网页插件 客服
+        (function(a, h, c, b, f, g) {
+            a["UdeskApiObject"] = f;
+            a[f] = a[f] || function() {
+                (a[f].d = a[f].d || []).push(arguments)
+            };
+            g = h.createElement(c);
+            g.async = 1;
+            g.src = b;
+            c = h.getElementsByTagName(c)[0];
+            //c.parentNode.insertBefore(g, c)
+        })(window, document, "script", "//weizhang.udesk.cn/im_client/js/udeskApi.js?_t=1475044663008", "ud");
+        ud({
+            code: "gigdb0a",
+            targetSelector: "#cc",
+            link: "//weizhang.udesk.cn/im_client",
+            group_id: "32981",
+            mobile: {
+                mode: "blank",
+                color: "#307AE8",
+                pos_flag: "crb",
+                pop: {
+                    direction: "top",
+                    arrow: {
+                        top: 0,
+                        left: "70%"
+                    }
+                }
+            },
+            mode: "inner",
+            color: "#307AE8",
+            pos_flag: "srb",
+            onlineText: "联系客服，在线咨询",
+            offlineText: "客服下班，请留言",
+            pop: {
+                direction: "top",
+                arrow: {
+                    top: 0,
+                    left: "80%"
+                }
+            }
+        })
+
+        // 设置分享显示的功能按钮
+        window['CHELUN_SHOW_MENU_ITEMS'] = ['menu:share:wxMessage', 'menu:share:wxTimeline', 'menu:refresh']
+    </script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="./dist/build.js"></script>
+</body>
+
+</html>

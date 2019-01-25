@@ -1,0 +1,19 @@
+@import "../../common/vendor.wxss";
+
+.counter-warp .home {
+  color: mediumvioletred;
+}
+.counter-warp {
+  text-align: center;
+  margin-top: 200rpx;
+}
+.home {
+  display: block;
+  margin: 20rpx auto;
+  padding: 10rpx 20rpx;
+  color: blue;
+  border: 2rpx solid blue;
+}
+.card {
+  padding: 20rpx;
+}
