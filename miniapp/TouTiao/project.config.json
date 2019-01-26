@@ -11,7 +11,7 @@
 	"miniprogramRoot": "dist/",
 	"compileType": "miniprogram",
 	"appid": "wxf4551892ec3d773b",
-	"projectname": "wxmp-demo",
+	"projectname": "TouTiao",
 	"libVersion": "2.2.1",
 	"condition": {
 		"search": {

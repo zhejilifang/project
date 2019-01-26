@@ -62,22 +62,83 @@ if (false) {(function () {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "counter-warp"
-  }, [_c('p', [_vm._v("Mpvue")]), _vm._v(" "), _c('p', [_vm._v("ts value " + _vm._s(_vm.ver))]), _vm._v(" "), _c('card', {
+  }, [_c('i-button', {
     attrs: {
-      "text": "card component",
       "mpcomid": '0'
     }
-  }), _vm._v(" "), _c('comp-b', {
+  }, [_vm._v("按钮")]), _vm._v(" "), _c('i-button', {
     attrs: {
-      "text": "hello2",
+      "eventid": '0',
       "mpcomid": '1'
+    },
+    on: {
+      "click": _vm.handleClick
     }
-  }), _vm._v(" "), _c('comp-alias', {
+  }, [_vm._v("默认按钮")]), _vm._v(" "), _c('i-button', {
     attrs: {
-      "text": "hello3",
+      "type": "error",
+      "long": "true",
+      "eventid": '1',
       "mpcomid": '2'
+    },
+    on: {
+      "click": _vm.handleClick
     }
-  }), _vm._v(" "), _c('a', {
+  }, [_vm._v("联通两边按钮")]), _vm._v(" "), _c('i-button', {
+    attrs: {
+      "type": "primary",
+      "eventid": '2',
+      "mpcomid": '3'
+    },
+    on: {
+      "click": _vm.handleClick
+    }
+  }, [_vm._v("Primary")]), _vm._v(" "), _c('i-button', {
+    attrs: {
+      "type": "ghost",
+      "eventid": '3',
+      "mpcomid": '4'
+    },
+    on: {
+      "click": _vm.handleClick
+    }
+  }, [_vm._v("Ghost")]), _vm._v(" "), _c('i-button', {
+    attrs: {
+      "type": "info",
+      "eventid": '4',
+      "mpcomid": '5'
+    },
+    on: {
+      "click": _vm.handleClick
+    }
+  }, [_vm._v("Info")]), _vm._v(" "), _c('i-button', {
+    attrs: {
+      "type": "success",
+      "eventid": '5',
+      "mpcomid": '6'
+    },
+    on: {
+      "click": _vm.handleClick
+    }
+  }, [_vm._v("Success")]), _vm._v(" "), _c('i-button', {
+    attrs: {
+      "type": "warning",
+      "eventid": '6',
+      "mpcomid": '7'
+    },
+    on: {
+      "click": _vm.handleClick
+    }
+  }, [_vm._v("Warning")]), _vm._v(" "), _c('i-button', {
+    attrs: {
+      "type": "error",
+      "eventid": '7',
+      "mpcomid": '8'
+    },
+    on: {
+      "click": _vm.handleClick
+    }
+  }, [_vm._v("Error")]), _vm._v(" "), _c('a', {
     staticClass: "home",
     attrs: {
       "href": _vm.AppUrls.COUNTER
@@ -334,6 +395,12 @@ var Index = function (_Vue) {
         key: "mounted",
         value: function mounted() {
             debug('mounted');
+        }
+    }, {
+        key: "handleClick",
+        value: function handleClick() {
+            console.log('触发了点击事件');
+            return 100;
         }
     }]);
 

@@ -6,18 +6,16 @@
     "pages/page2/main",
     "pages/testExtend/main"
   ],
-  "subPackages": [
-    {
-      "root": "packageA",
-      "pages": [
-        "pages/index/main"
-      ]
-    }
-  ],
+  "subPackages": [{
+    "root": "packageA",
+    "pages": [
+      "pages/index/main"
+    ]
+  }],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "今日头条",
     "navigationBarTextStyle": "black"
   }
 }

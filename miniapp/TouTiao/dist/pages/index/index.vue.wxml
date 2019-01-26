@@ -1,9 +1,14 @@
-<import src="/components/card.vue.wxml" />
-<import src="/components/compb.vue.wxml" /><template name="4c094988">
+<template name="4c094988">
   <view class="_div data-v-177fa02f counter-warp">
-    <view class="_p data-v-177fa02f">Mpvue</view>
-    <view class="_p data-v-177fa02f">ts value {{ ver }}</view> <template text="card component" data="{{...$root[$kk+'0'], $root}}" is="e47dbd24"></template> <template text="hello2" data="{{...$root[$kk+'1'], $root}}" is="312add76"></template>
-    <comp-alias text="hello3" class="_comp-alias data-v-177fa02f"></comp-alias>
+    <i-button class="_i-button data-v-177fa02f">按钮</i-button>
+    <i-button bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_i-button data-v-177fa02f">默认按钮</i-button>
+    <i-button bindtap="handleProxy" type="error" long="true" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_i-button data-v-177fa02f">联通两边按钮</i-button>
+    <i-button bindtap="handleProxy" type="primary" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_i-button data-v-177fa02f">Primary</i-button>
+    <i-button bindtap="handleProxy" type="ghost" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_i-button data-v-177fa02f">Ghost</i-button>
+    <i-button bindtap="handleProxy" type="info" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_i-button data-v-177fa02f">Info</i-button>
+    <i-button bindtap="handleProxy" type="success" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_i-button data-v-177fa02f">Success</i-button>
+    <i-button bindtap="handleProxy" type="warning" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_i-button data-v-177fa02f">Warning</i-button>
+    <i-button bindtap="handleProxy" type="error" data-eventid="{{'7'}}" data-comkey="{{$k}}" class="_i-button data-v-177fa02f">Error</i-button>
     <navigator url="{{AppUrls.COUNTER}}" class="_a data-v-177fa02f home">去往vuex</navigator>
     <navigator url="{{AppUrls.PACKAGE_A}}" class="_a data-v-177fa02f home">分包A</navigator>
     <navigator url="/pages/testExtend/main" class="_a data-v-177fa02f home">测试继承</navigator>

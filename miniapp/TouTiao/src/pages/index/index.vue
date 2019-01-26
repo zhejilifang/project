@@ -1,10 +1,14 @@
 <template>
   <div class="counter-warp">
-    <p>Mpvue</p>
-    <p>ts value {{ ver }}</p>
-    <card text="card component"></card>
-    <comp-b text="hello2"></comp-b>
-    <comp-alias text="hello3"></comp-alias>
+    <i-button>按钮</i-button>
+    <i-button v-on:click="handleClick" >默认按钮</i-button>
+    <i-button v-on:click="handleClick" type="error" long="true">联通两边按钮</i-button>
+    <i-button v-on:click="handleClick"  type="primary">Primary</i-button>
+    <i-button v-on:click="handleClick" type="ghost">Ghost</i-button>
+    <i-button v-on:click="handleClick" type="info">Info</i-button>
+    <i-button v-on:click="handleClick" type="success">Success</i-button>
+    <i-button v-on:click="handleClick" type="warning">Warning</i-button>
+    <i-button v-on:click="handleClick" type="error">Error</i-button>
     <a :href="AppUrls.COUNTER" class="home">去往vuex</a>
     <a :href="AppUrls.PACKAGE_A" class="home">分包A</a>
     <a href="/pages/testExtend/main" class="home">测试继承</a>

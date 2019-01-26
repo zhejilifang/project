@@ -23,6 +23,11 @@ class Index extends Vue {
   mounted() { // vue hook
     debug('mounted')
   }
+
+  handleClick(): number {
+    console.log('触发了点击事件')
+    return 100
+  }
 }
 
 export default Index
