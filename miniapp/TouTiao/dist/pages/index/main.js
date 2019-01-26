@@ -97,7 +97,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "mpcomid": '2'
     }
   }, _vm._l((_vm.channels), function(value, index) {
-    return _c('i-tab', {
+    return (!value.defaultNotShow) ? _c('i-tab', {
       key: value.name,
       attrs: {
         "title": value.name,
@@ -109,7 +109,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.handleClickTab(value.name)
         }
       }
-    })
+    }) : _vm._e()
   }))], 1), _vm._v(" "), _c('div', {
     staticClass: "change-btn"
   }, [_c('div', {

@@ -6,7 +6,7 @@
       </view>
       <view class="_div data-v-177fa02f tab-channels">
         <i-tabs current="{{current}}" scroll color="#F85151" class="_i-tabs data-v-177fa02f">
-          <i-tab wx:key="value.name" key="{{value.name}}" title="{{value.name}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{channels}}" wx:for-index="index" wx:for-item="value" class="_i-tab data-v-177fa02f"></i-tab>
+          <i-tab wx:if="{{!value.defaultNotShow}}" wx:key="value.name" key="{{value.name}}" title="{{value.name}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{channels}}" wx:for-index="index" wx:for-item="value" class="_i-tab data-v-177fa02f"></i-tab>
         </i-tabs>
       </view>
       <view class="_div data-v-177fa02f change-btn">

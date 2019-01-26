@@ -8,6 +8,7 @@
         <i-tabs :current="current" scroll color="#F85151">
           <i-tab
             v-for="(value,index) in channels"
+            v-if="!value.defaultNotShow"
             :key="value.name"
             :title="value.name"
             @click="handleClickTab(value.name)"
