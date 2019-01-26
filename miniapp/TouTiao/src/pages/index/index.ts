@@ -14,6 +14,7 @@ const debug = require('debug')('log:Index')
 })
 class Index extends Vue {
   ver: number = 123
+  current: string = "推荐"
 
   get channels() {
     console.log(this.$store.state.index.channels)
@@ -29,9 +30,8 @@ class Index extends Vue {
     debug('mounted')
   }
 
-  handleClick(): number {
-    console.log('触发了点击事件')
-    return 100
+  handleClickTab(changeTab) {
+    this.current = changeTab
   }
 }
 

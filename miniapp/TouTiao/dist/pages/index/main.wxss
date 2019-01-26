@@ -1,18 +1,65 @@
 @import "../../common/vendor.wxss";
 
-.counter-warp .home {
-  color: mediumvioletred;
-}
 .counter-warp {
-  text-align: center;
-  margin-top: 200rpx;
+  width: 100%;
+  height: 100%;
 }
-.home {
-  display: block;
-  margin: 20rpx auto;
-  padding: 10rpx 20rpx;
-  color: blue;
-  border: 2rpx solid blue;
+.counter-warp .index-header {
+  width: 100%;
+  height: 90rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 2rpx solid #ccc;
+}
+.counter-warp .index-header .search-btn {
+  width: 88rpx;
+  height: 88rpx;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+.counter-warp .index-header .tab-channels {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+.counter-warp .index-header .change-btn {
+  width: 176rpx;
+  height: 88rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-left: 2rpx solid #ccc;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+.counter-warp .index-header .change-btn .add-btn,
+.counter-warp .index-header .change-btn .user-btn {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .card {
   padding: 20rpx;
