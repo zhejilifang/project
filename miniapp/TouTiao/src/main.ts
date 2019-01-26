@@ -1,6 +1,8 @@
 import { Component, Emit, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator';
 import { VueConstructor } from "vue";
 
+import store from "@/store/index";
+
 let isApp = false; //尝试mpvue-entry
 let MyApp;
 /* app-only-begin */
@@ -29,12 +31,14 @@ Component.registerHooks([
 ])
 
 Vue.config.productionTip = false
+
+Vue.prototype.$store = store;
 /* app-only-end */
 
 if (isApp) {
   // 在这个地方引入是为了registerHooks先执行
   MyApp = require('./App.vue').default as IMpVue
-}else {
+} else {
   // MyApp = require('./index.vue')
 }
 

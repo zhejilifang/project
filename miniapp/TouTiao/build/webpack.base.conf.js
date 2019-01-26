@@ -27,14 +27,14 @@ function getEntry(rootSrc, gb = '/pages/**/main.ts') {
 
 const appEntry = { app: resolve('./src/main.ts') }
 const pagesEntry = getEntry(resolve('./src'))
-//分包A
+  //分包A
 const subpackagePagesEntry = getEntry(resolve('./src'), '/packageA/pages/**/main.ts')
 const entry = Object.assign({}, appEntry, pagesEntry, subpackagePagesEntry)
 
 module.exports = {
   entry: entry, // 如果要自定义生成的 dist 目录里面的文件路径，
-                // 可以将 entry 写成 {'toPath': 'fromPath'} 的形式，
-                // toPath 为相对于 dist 的路径, 例：index/demo，则生成的文件地址为 dist/index/demo.js
+  // 可以将 entry 写成 {'toPath': 'fromPath'} 的形式，
+  // toPath 为相对于 dist 的路径, 例：index/demo，则生成的文件地址为 dist/index/demo.js
   // entry: MpvueEntry.getEntry({
   //   main: 'src/main.ts',
   //   pages: 'src/pages.js',
@@ -44,12 +44,11 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ?
+      config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json', '.ts',],
+    extensions: ['.js', '.vue', '.json', '.ts', ],
     alias: {
       'vue': 'mpvue',
       '@': resolve('src'),
@@ -59,7 +58,7 @@ module.exports = {
   },
   module: {
     rules: [
-      {
+      /* {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
@@ -67,7 +66,7 @@ module.exports = {
         options: {
           formatter: require('eslint-friendly-formatter')
         }
-      },
+      }, */
       {
         test: /\.vue$/,
         loader: 'mpvue-loader',
@@ -164,12 +163,10 @@ module.exports = {
     }], {
       context: 'src/'
     }),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: path.resolve(__dirname, '../dist/static'),
-        ignore: ['.*']
-      }
-    ])
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, '../static'),
+      to: path.resolve(__dirname, '../dist/static'),
+      ignore: ['.*']
+    }])
   ]
 }

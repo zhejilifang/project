@@ -1,6 +1,7 @@
 import Fly from "flyio/dist/npm/wx"
 import { map, merge } from 'lodash'
-let fly = new Fly
+
+export let fly = new Fly
 
 let cookies = {}
 const HOST = 'https://127.0.0.1' // 更改

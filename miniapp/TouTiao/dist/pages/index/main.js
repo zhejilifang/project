@@ -66,94 +66,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "mpcomid": '0'
     }
-  }, [_vm._v("按钮")]), _vm._v(" "), _c('i-button', {
-    attrs: {
-      "eventid": '0',
-      "mpcomid": '1'
-    },
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_vm._v("默认按钮")]), _vm._v(" "), _c('i-button', {
-    attrs: {
-      "type": "error",
-      "long": "true",
-      "eventid": '1',
-      "mpcomid": '2'
-    },
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_vm._v("联通两边按钮")]), _vm._v(" "), _c('i-button', {
-    attrs: {
-      "type": "primary",
-      "eventid": '2',
-      "mpcomid": '3'
-    },
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_vm._v("Primary")]), _vm._v(" "), _c('i-button', {
-    attrs: {
-      "type": "ghost",
-      "eventid": '3',
-      "mpcomid": '4'
-    },
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_vm._v("Ghost")]), _vm._v(" "), _c('i-button', {
-    attrs: {
-      "type": "info",
-      "eventid": '4',
-      "mpcomid": '5'
-    },
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_vm._v("Info")]), _vm._v(" "), _c('i-button', {
-    attrs: {
-      "type": "success",
-      "eventid": '5',
-      "mpcomid": '6'
-    },
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_vm._v("Success")]), _vm._v(" "), _c('i-button', {
-    attrs: {
-      "type": "warning",
-      "eventid": '6',
-      "mpcomid": '7'
-    },
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_vm._v("Warning")]), _vm._v(" "), _c('i-button', {
-    attrs: {
-      "type": "error",
-      "eventid": '7',
-      "mpcomid": '8'
-    },
-    on: {
-      "click": _vm.handleClick
-    }
-  }, [_vm._v("Error")]), _vm._v(" "), _c('a', {
-    staticClass: "home",
-    attrs: {
-      "href": _vm.AppUrls.COUNTER
-    }
-  }, [_vm._v("去往vuex")]), _vm._v(" "), _c('a', {
-    staticClass: "home",
-    attrs: {
-      "href": _vm.AppUrls.PACKAGE_A
-    }
-  }, [_vm._v("分包A")]), _vm._v(" "), _c('a', {
-    staticClass: "home",
-    attrs: {
-      "href": "/pages/testExtend/main"
-    }
-  }, [_vm._v("测试继承")])], 1)
+  }, [_vm._v("按钮")])], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -347,9 +260,8 @@ CompB = __decorate([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_vue_proper
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_babel_runtime_core_js_object_get_own_property_descriptor__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_babel_runtime_core_js_object_get_own_property_descriptor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_babel_runtime_core_js_object_get_own_property_descriptor__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue_property_decorator__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_consts_ts__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_card_vue__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_compb_vue__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_card_vue__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_compb_vue__ = __webpack_require__(104);
 
 
 
@@ -367,7 +279,6 @@ var __decorate = this && this.__decorate || function (decorators, target, key, d
     }return c > 3 && r && __WEBPACK_IMPORTED_MODULE_5_babel_runtime_core_js_object_define_property___default()(target, key, r), r;
 };
 
-
  // mpvue目前只支持的单文件组件
  // mpvue目前只支持的单文件组件
 var debug = __webpack_require__(22)('log:Index');
@@ -381,7 +292,6 @@ var Index = function (_Vue) {
 
         var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Index.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(Index)).apply(this, arguments));
 
-        _this.AppUrls = __WEBPACK_IMPORTED_MODULE_9__utils_consts_ts__["a" /* AppUrls */];
         _this.ver = 123;
         return _this;
     }
@@ -390,6 +300,7 @@ var Index = function (_Vue) {
         key: "onShow",
         value: function onShow() {
             debug('onShow');
+            this.$store.dispatch('index/getSetting');
         }
     }, {
         key: "mounted",
@@ -402,14 +313,20 @@ var Index = function (_Vue) {
             console.log('触发了点击事件');
             return 100;
         }
+    }, {
+        key: "channels",
+        get: function get() {
+            console.log(this.$store.state.index.channels);
+            return this.$store.state.index.channels;
+        }
     }]);
 
     return Index;
 }(__WEBPACK_IMPORTED_MODULE_8_vue_property_decorator__["a" /* Vue */]);
 Index = __decorate([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_vue_property_decorator__["b" /* Component */])({
     components: {
-        Card: __WEBPACK_IMPORTED_MODULE_10__components_card_vue__["a" /* default */],
-        CompB: __WEBPACK_IMPORTED_MODULE_11__components_compb_vue__["a" /* default */]
+        Card: __WEBPACK_IMPORTED_MODULE_9__components_card_vue__["a" /* default */],
+        CompB: __WEBPACK_IMPORTED_MODULE_10__components_compb_vue__["a" /* default */]
     }
 })], Index);
 /* harmony default export */ __webpack_exports__["a"] = (Index);
