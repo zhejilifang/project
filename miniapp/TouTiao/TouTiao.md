@@ -2,7 +2,7 @@
 
 ## 首页
 ### 获取顶部tab
-- url: get https://m.toutiao.com/pwa/api/wxapp/settings
+- url: get https://m.toutiao.com/pwa/api/wxapp/settings/?extra=jPWuEOiMajY1K3oh/wmrUgFGTCFxibxyezc4olGR3FoKpxz/CQXAiJ0vQ5iKOYtnYEy9FavJoVQdeRqbrFkriAGUc9u324ZOIxTf/YJAuI0Ao4PHucxsAE+EvWTyo+x4T/bGtfAqgW2FeQ/jkyZ4bXPqoK6PbmVYZTiLOKag+YIM57nIkI5D+ioccX1xhE5SZA1o1EvMb7fkc5adgk4UqiCVSkExXWkDOQJ3TPk9wivF3u9Bu+/XAMqIt+ra5aaoF7KKO6nD8Ze05I9bOxDj8wveCmEBSRpDXdsvGnJewJnoCY3sdPoVXo164cy7Heguy4Zv5l6e8Na4znDjhcAVqq4vC5n9oUwhquJ05aH6B2azLSakDCqTiABt7ljcenTHtYG/nyoF+3cMSeByRDh7w5sCPh4p9vLHFmbBzznaH+1oYAhxgCvRhbOT5IAMDNqzBNAjugjSqlV4TYH+i2a11E79P3UUJFIfnEbRwX5wuUPclaykJVWHlfFbTZdktEhtv3ECJt6tYXz0NovWMdCAnb/77hpivdOO5CQJtpD94jX18AQpAmWZdyIBz8V0jC63b3x05xN/LBCAWFJiMyxDPJmeHDRvQasvLgiCJDZwkZW3XG7v+vivBx4r/F1eQocXhHtSFlI9kCkulUGYbYjy5mHfCNdK1XYN9CgcXeGmMBUIVOVkJT/AyfLIjFbG/p5YYon9hOuJQrQU6/Xuk505YoP2WMUv4VuXfneoMt3dWRc=
 
 ### 分类tab切换
 - url: get https://lf.snssdk.com/api/news/feed/v66/?language=zh-Hans-CN&count=20&category=[tab分类]&aid=1162&min_behot_time=[分页behot_time]&device_id=6650307045722932750
