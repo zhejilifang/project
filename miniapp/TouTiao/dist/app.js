@@ -108,9 +108,9 @@ var Api = {
 
 
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["c" /* default */]);
 
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["c" /* default */].Store({
   modules: {
     index: __WEBPACK_IMPORTED_MODULE_3__modules_index__["a" /* default */]
   },
@@ -264,10 +264,15 @@ App = __decorate([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_vue_property
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getSetting; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getNewsList; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api__ = __webpack_require__(47);
 
 var getSetting = function getSetting() {
     return __WEBPACK_IMPORTED_MODULE_0__api__["b" /* fly */].request('https://m.toutiao.com/pwa/api/wxapp/settings/?extra=9PS4Lq6mY%2FZrv6vuAn425pm0R7GQW8IezyXcUAVKvEYOqPityCrgZqCgBIs2PwMJvvdLRE5IHaNgVpgO%2BTWJ6rDi%2FcysD6rD7XGXtvhJLKitFv9I3XESm5gmgKUMRWtyTUY2mc1P1licWBVl2s6O%2FLh43RhfXHmRtz6%2FEQp3ZsEMGBI3NhpHSdU0jzd4gaTUJOJ0ZIUSq61w4GNX%2BAAJCpyfoVNBRyfICcWXIGg5H%2FNV1qsjpEgFIrOdyvM%2BolhU5zKdtfTHfSoUCmRXDQSIWUlReTQhf0eHgPt0Ga4zicsIZulUtUdiGAXOVPLZJm8dNovFFssIIlmulovcYO3TmFXBclsQF8MTfr%2F0fnvaeeP96R1jblUNd2lvSaXxxn%2F0iHf%2F0Xz%2BLx1rWux1zPnidVNhfwCX6P%2FgdhD4IszaqZSWWxU1t86%2FOmcyfA8Cp9hJJQrQ4Sz6Tt%2Bb77RV5SVlh235B4R6wXEZbI3jX08VBxW%2FNg33nAxKMxBFy7I653YclxrBm0O4ScfV5nXtI%2BlnBj3RTQnVK57Xr%2BbC8Ph1WW42OQszNCs5DHJQL%2FVbVs8N2ER9oX1O%2B5bxQVDMznA%2FmhLQbzh7%2BUyYaYpJL1XVGQSmzbSIU7ZwJ%2Fm60hzksXcCefLX9ka7iNdKj2I3DyABxzYvA4fseqMBzEQoIEriQekcUKdeM6ZTZ3oRBtptl9gluHjdGF9ceZG3Pr8RCndmwRApLOjgRFIZEbd2aVqk839G9vcqj34%2BqTjd1cj5SgeR%2B9D5YZFgqgiC%2BOSH02CW0EOnRzWPb9rU2%2B9eYAPrYR%2FN3QZ1lc2epuJy7UysXELgCjDI8tQHYl%2FoGc2ChQ6qEnPyZQgy9Pn7ZGij6dkrLac9HCM7QD3NkB1qrXs92HDvANBjvNUaCIyrCGZZE4jDNGi3%2FSFlkF5D3U7gieNw3ag6V7VHYdHqRKfHbyp8Upkm');
+};
+var getNewsList = function getNewsList(url) {
+    // console.log(url);
+    return __WEBPACK_IMPORTED_MODULE_0__api__["b" /* fly */].request(url);
 };
 
 /***/ }),
@@ -319,12 +324,20 @@ app.$mount();
 
 
 var state = {
-  channels: []
+  channels: [],
+  currentUrl: '',
+  newsList: []
 };
 
 var mutations = {
   updateChannels: function updateChannels(state, channels) {
     state.channels = channels;
+  },
+  updateCurrentUrl: function updateCurrentUrl(state, currentUrl) {
+    state.currentUrl = currentUrl;
+  },
+  updateNewsList: function updateNewsList(state, newsList) {
+    state.newsList = newsList;
   }
 };
 
@@ -345,7 +358,8 @@ var actions = {
             case 2:
               channels = _context.sent;
 
-              console.log('channels...', channels);
+              // console.log('channels...', channels)
+              commit('updateCurrentUrl', channels.channels[0][0].appUrl);
               commit('updateChannels', channels.channels[0]);
 
             case 5:
@@ -354,6 +368,38 @@ var actions = {
           }
         }
       }, _callee, _this);
+    }))();
+  },
+  getNewsList: function getNewsList(_ref2, url) {
+    var _this2 = this;
+
+    var commit = _ref2.commit;
+    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      var res, newsList;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__data_index__["b" /* getNewsList */])(url);
+
+            case 2:
+              res = _context2.sent;
+
+              // console.log('res...', res.data)
+              newsList = res.data.map(function (item) {
+                return JSON.parse(item.content);
+              });
+
+              console.log('newsList...', newsList);
+              commit('updateNewsList', newsList);
+
+            case 6:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, _callee2, _this2);
     }))();
   }
 };

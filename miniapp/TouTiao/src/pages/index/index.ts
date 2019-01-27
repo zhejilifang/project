@@ -1,37 +1,45 @@
 import { Vue, Component } from 'vue-property-decorator'
-import Card from '@/components/card.vue' // mpvue目前只支持的单文件组件
-import CompB from '@/components/compb.vue' // mpvue目前只支持的单文件组件
 
 
 const debug = require('debug')('log:Index')
+import { mapState, mapActions } from "vuex";
 
 // 必须使用装饰器的方式来指定component
 @Component({
-  components: {
-    Card,
-    CompB, //注意，vue的组件在template中的用法，`CompB` 会被转成 `comp-b`
+  computed: {
+    ...mapState({
+      channels: state => state['index'].channels,
+      currentUrl: state => state['index'].currentUrl,
+      newsList: state => state['index'].newsList
+    })
+  },
+  methods: {
+    ...mapActions({
+      getSetting: 'index/getSetting',
+      getNewsList: 'index/getNewsList'
+    })
   }
 })
 class Index extends Vue {
-  ver: number = 123
   current: string = "推荐"
 
-  get channels() {
-    console.log(this.$store.state.index.channels)
-    return this.$store.state.index.channels;
-  }
 
   onShow() { // 小程序 hook
     debug('onShow')
-    this.$store.dispatch('index/getSetting')
+    this['getSetting']().then(() => {
+      this['getNewsList'](this['currentUrl'])
+    })
+
   }
 
   mounted() { // vue hook
     debug('mounted')
   }
 
-  handleClickTab(changeTab) {
-    this.current = changeTab
+  handleClickTab(changeTab, changeUrl) {
+    //console.log(changeUrl);
+    this.current = changeTab;
+    this['getNewsList'](changeUrl)
   }
 }
 

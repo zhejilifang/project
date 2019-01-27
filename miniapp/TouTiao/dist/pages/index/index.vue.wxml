@@ -2,19 +2,27 @@
   <view class="_div data-v-177fa02f counter-warp">
     <view class="_div data-v-177fa02f index-header">
       <view class="_div data-v-177fa02f search-btn">
-        <i-icon type="search" size="20" color="#000" class="_i-icon data-v-177fa02f"></i-icon>
+        <i-icon type="search" size="24" color="#000" class="_i-icon data-v-177fa02f"></i-icon>
       </view>
       <view class="_div data-v-177fa02f tab-channels">
-        <i-tabs current="{{current}}" scroll color="#F85151" class="_i-tabs data-v-177fa02f">
+        <i-tabs current="{{current}}" scroll color="#F85151" i-class="channels-item" class="_i-tabs data-v-177fa02f">
           <i-tab wx:if="{{!value.defaultNotShow}}" wx:key="value.name" key="{{value.name}}" title="{{value.name}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{channels}}" wx:for-index="index" wx:for-item="value" class="_i-tab data-v-177fa02f"></i-tab>
         </i-tabs>
       </view>
       <view class="_div data-v-177fa02f change-btn">
         <view class="_div data-v-177fa02f add-btn">
-          <i-icon type="add" size="20" color="#000" class="_i-icon data-v-177fa02f"></i-icon>
+          <i-icon type="add" size="24" color="#000" class="_i-icon data-v-177fa02f"></i-icon>
         </view>
         <view class="_div data-v-177fa02f user-btn">
-          <i-icon type="addressbook" size="20" color="#000" class="_i-icon data-v-177fa02f"></i-icon>
+          <i-icon type="addressbook" size="24" color="#000" class="_i-icon data-v-177fa02f"></i-icon>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-177fa02f news-cont">
+      <view class="_div data-v-177fa02f news-list">
+        <view class="_div data-v-177fa02f news-item" wx:key="value.item_id" key="{{value.item_id}}" wx:for="{{newsList}}" wx:for-index="index" wx:for-item="value">
+          <view class="_h2 data-v-177fa02f item-title">{{value.title}}</view>
+          <view class="_p data-v-177fa02f item-info"><label class="_span data-v-177fa02f media-name">{{value.media_name}}</label> <label class="_span data-v-177fa02f comment-count">{{value.comment_count}}评论</label> <label class="_span data-v-177fa02f item-remove">x</label></view>
         </view>
       </view>
     </view>

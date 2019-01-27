@@ -212,8 +212,8 @@ app.$mount();
 // make sure to call Vue.use(Vuex) if using a module system
 
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
-var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["c" /* default */]);
+var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["c" /* default */].Store({
     state: {
         count: 0
     },
