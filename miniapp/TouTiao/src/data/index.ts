@@ -8,3 +8,8 @@ export let getNewsList = (url) => {
   // console.log(url);
   return fly.request(url)
 }
+
+export let getDetailList = (id) => {
+  // console.log('id...', id);
+  return fly.request(`https://m.toutiao.com/pwa/api/wxapp/info/${id}/`)
+}

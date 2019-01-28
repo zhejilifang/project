@@ -1,5 +1,5 @@
 <import src="/components/NewsList/index.vue.wxml" /><template name="4c094988">
-  <view class="_div data-v-177fa02f counter-warp">
+  <view class="_div data-v-177fa02f counter-wrap">
     <view class="_div data-v-177fa02f index-header">
       <view class="_div data-v-177fa02f search-btn">
         <i-icon type="search" size="24" color="#000" class="_i-icon data-v-177fa02f"></i-icon>

@@ -1,6 +1,12 @@
 <template>
   <div class="news-list">
-    <div class="news-item" v-for="(value,index) in list" v-if="value.title" :key="value.item_id">
+    <div
+      class="news-item"
+      v-for="(value,index) in list"
+      v-if="value.title"
+      :key="value.item_id"
+      @click="handleToDetail(value.display_url)"
+    >
       <div class="item-cont">
         <h2 class="item-title">{{value.title}}</h2>
         <div class="item-gallery">

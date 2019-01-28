@@ -1,10 +1,11 @@
-import { getSetting, getNewsList } from "@/data/index";
+import { getSetting, getNewsList, getDetailList } from "@/data/index";
 
 const state = {
   channels: [],
   currentUrl: '',
   newsList: [],
-  hot_time: ''
+  hot_time: '',
+  detailList: []
 }
 
 const mutations = {
@@ -32,6 +33,9 @@ const mutations = {
       return item.item_id == id;
     })
     state.newsList.splice(index, 1);
+  },
+  goToDetail(state, detailList) {
+    state.detailList = detailList
   }
 }
 
@@ -59,6 +63,10 @@ const actions = {
       return JSON.parse(item.content)
     })
     commit('appendNewsList', newsList);
+  },
+  async getDetailList({ commit }, id) {
+    let res = await getDetailList(id);
+    console.log(res)
   }
 }
 

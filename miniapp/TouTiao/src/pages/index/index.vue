@@ -1,5 +1,5 @@
 <template>
-  <div class="counter-warp">
+  <div class="counter-wrap">
     <div class="index-header">
       <div class="search-btn">
         <i-icon type="search" size="24" color="#000"/>
@@ -38,7 +38,7 @@
 
 
 <style lang="less">
-.counter-warp {
+.counter-wrap {
   width: 100%;
   height: 100%;
   padding-top: 45px;
