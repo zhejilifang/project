@@ -1,0 +1,16 @@
+<template name="187f2276">
+  <view class="_div data-v-6133f9b2 news-list">
+    <view class="_div data-v-6133f9b2 news-item" wx:if="{{value.title}}" wx:key="value.item_id" key="{{value.item_id}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="value">
+      <view class="_div data-v-6133f9b2 item-cont">
+        <view class="_h2 data-v-6133f9b2 item-title">{{value.title}}</view>
+        <view class="_div data-v-6133f9b2 item-gallery">
+          <image src="{{value.url}}" mode="widthFix" wx:key="key" key="{{key}}" wx:for="{{value.image_list}}" wx:for-index="key" wx:for-item="value" class="_img data-v-6133f9b2"></image>
+        </view>
+        <view class="_p data-v-6133f9b2 item-info"><label class="_span data-v-6133f9b2 media-name">{{value.media_name}}</label> <label class="_span data-v-6133f9b2 comment-count">{{value.comment_count}}评论</label> <label class="_span data-v-6133f9b2 item-remove" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">x</label></view>
+      </view>
+      <view class="_div data-v-6133f9b2 item-photo" wx:if="{{!value.image_list && value.middle_image}}">
+        <image class="_img data-v-6133f9b2 middle-image" mode="widthFix" src="{{value.middle_image.url}}"></image>
+      </view>
+    </view>
+  </view>
+</template>

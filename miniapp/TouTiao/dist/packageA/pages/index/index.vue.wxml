@@ -1,7 +1,0 @@
-<import src="/components/card.vue.wxml" /><template name="383575a7">
-  <view class="_div data-v-1fcab261 counter-warp">
-    <view class="_p data-v-1fcab261">PackageA</view>
-    <view class="_p data-v-1fcab261">ts value {{ ver }}</view> <template text="card component" data="{{...$root[$kk+'0'], $root}}" is="e47dbd24"></template>
-    <navigator url="{{AppUrls.COUNTER}}" class="_a data-v-1fcab261 home">去往vuex</navigator>
-  </view>
-</template>

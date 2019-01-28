@@ -3,7 +3,8 @@ import { getSetting, getNewsList } from "@/data/index";
 const state = {
   channels: [],
   currentUrl: '',
-  newsList: []
+  newsList: [],
+  hot_time: ''
 }
 
 const mutations = {
@@ -15,6 +16,22 @@ const mutations = {
   },
   updateNewsList(state, newsList) {
     state.newsList = newsList;
+    state.hot_time = newsList.map(item => {
+      return item.behot_time;
+    }).sort((a, b) => b - a)[0];
+  },
+  appendNewsList(state, newsList) {
+    state.newsList = [...state.newsList, ...newsList];
+    console.log(state.newsList.length);
+    state.hot_time = newsList.map(item => {
+      return item.behot_time;
+    }).sort((a, b) => b - a)[0];
+  },
+  removeNews(state, id) {
+    let index = state.newsList.findIndex(item => {
+      return item.item_id == id;
+    })
+    state.newsList.splice(index, 1);
   }
 }
 
@@ -34,6 +51,14 @@ const actions = {
     })
     console.log('newsList...', newsList)
     commit('updateNewsList', newsList)
+  },
+  async getMore({ commit, state }, url) {
+    url += `&max_behot_time=${state.hot_time}`
+    let res = await getNewsList(url);
+    let newsList = res.data.map(item => {
+      return JSON.parse(item.content)
+    })
+    commit('appendNewsList', newsList);
   }
 }
 

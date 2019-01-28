@@ -1,4 +1,4 @@
-<template name="4c094988">
+<import src="/components/NewsList/index.vue.wxml" /><template name="4c094988">
   <view class="_div data-v-177fa02f counter-warp">
     <view class="_div data-v-177fa02f index-header">
       <view class="_div data-v-177fa02f search-btn">
@@ -18,13 +18,9 @@
         </view>
       </view>
     </view>
-    <view class="_div data-v-177fa02f news-cont">
-      <view class="_div data-v-177fa02f news-list">
-        <view class="_div data-v-177fa02f news-item" wx:key="value.item_id" key="{{value.item_id}}" wx:for="{{newsList}}" wx:for-index="index" wx:for-item="value">
-          <view class="_h2 data-v-177fa02f item-title">{{value.title}}</view>
-          <view class="_p data-v-177fa02f item-info"><label class="_span data-v-177fa02f media-name">{{value.media_name}}</label> <label class="_span data-v-177fa02f comment-count">{{value.comment_count}}评论</label> <label class="_span data-v-177fa02f item-remove">x</label></view>
-        </view>
-      </view>
+    <view class="_div data-v-177fa02f news-cont"><template data="{{...$root[$kk+'5'], $root}}" is="187f2276"></template></view>
+    <view bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_div data-v-177fa02f {{[true ? 'refresh' : '', isRefresh ? 'active' : '']}}">
+      <image src="/assets/refresh.png" class="_img data-v-177fa02f"></image>
     </view>
   </view>
 </template>

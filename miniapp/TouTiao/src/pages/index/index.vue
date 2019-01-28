@@ -25,16 +25,10 @@
       </div>
     </div>
     <div class="news-cont">
-      <div class="news-list">
-        <div class="news-item" v-for="(value,index) in newsList" :key="value.item_id">
-          <h2 class="item-title">{{value.title}}</h2>
-          <p class="item-info">
-            <span class="media-name">{{value.media_name}}</span>
-            <span class="comment-count">{{value.comment_count}}评论</span>
-            <span class="item-remove">x</span>
-          </p>
-        </div>
-      </div>
+      <NewsList :list="newsList"></NewsList>
+    </div>
+    <div :class="{refresh:true, active:isRefresh}" @click="refreshPage">
+      <img src="../../assets/refresh.png">
     </div>
   </div>
 </template>
@@ -97,38 +91,33 @@
 }
 .news-cont {
   width: 100%;
-  .news-list {
-    width: 100%;
-    padding: 0 15px;
-    .news-item {
-      width: 100%;
-      padding: 15px 0;
-      border-bottom: 1px solid #ccc;
-      .item-title {
-        width: 100%;
-        font-size: 18px;
-        color: #000;
-      }
-      .item-info {
-        line-height: 2.5;
-        font-size: 12px;
-        color: #999;
-        position: relative;
-        .comment-count {
-          padding: 0 10px;
-        }
-        .item-remove {
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          height: 12px;
-          padding: 0 8px;
-          border-radius: 7px;
-          border: 1px solid #999;
-          line-height: 10px;
-          text-align: center;
-        }
-      }
+}
+.refresh {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  box-shadow: 0 0 2px 1px #999;
+  img {
+    width: 24px;
+    height: 24px;
+  }
+  &.active {
+    animation: rotateD 1.2s linear infinite;
+  }
+  @keyframes rotateD {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(720deg);
     }
   }
 }

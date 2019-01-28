@@ -5,5 +5,6 @@
     "i-icon": "../../iview/icon/index",
     "i-tabs": "../../iview/tabs/index",
     "i-tab": "../../iview/tab/index"
-  }
+  },
+  "onReachBottomDistance": 0
 }
