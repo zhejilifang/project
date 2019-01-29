@@ -71,5 +71,9 @@ class Detail extends Vue {
     }
   }
 
+  changeCollect() {
+    this.isCollection = !this.isCollection
+  }
+
 }
 export default Detail

@@ -43,8 +43,8 @@
         </label> <input type="text" placeholder="{{placeholder}}" placeholder-style="color:#333" bindfocus="handleProxy" bindblur="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_input data-v-323c77aa" /></view>
       <view class="_div data-v-323c77aa purpose-btns"><label class="_span data-v-323c77aa comment-btn">
           <i-icon type="interactive" size="26" class="_i-icon data-v-323c77aa"></i-icon>
-        </label> <label class="_span data-v-323c77aa collect-btn">
-          <i-icon type="{{isCollection?'collection_fill':'collection'}}" size="26" class="_i-icon data-v-323c77aa"></i-icon>
+        </label> <label class="_span data-v-323c77aa collect-btn" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+          <i-icon type="{{isCollection?'collection_fill':'collection'}}" color="{{isCollection?'#FFCA28':''}}" size="26" class="_i-icon data-v-323c77aa"></i-icon>
         </label> <button class="_button data-v-323c77aa share-btn" open-type="share">
           <i-icon type="share" size="26" class="_i-icon data-v-323c77aa"></i-icon>
         </button> <label class="_span data-v-323c77aa circle-btn">

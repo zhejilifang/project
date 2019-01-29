@@ -153,10 +153,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "mpcomid": '2'
     }
   })], 1), _vm._v(" "), _c('span', {
-    staticClass: "collect-btn"
+    staticClass: "collect-btn",
+    attrs: {
+      "eventid": '3'
+    },
+    on: {
+      "click": _vm.changeCollect
+    }
   }, [_c('i-icon', {
     attrs: {
       "type": _vm.isCollection ? 'collection_fill' : 'collection',
+      "color": _vm.isCollection ? '#FFCA28' : '',
       "size": "26",
       "mpcomid": '3'
     }
@@ -336,6 +343,11 @@ var Detail = function (_Vue) {
                 }
                 this.size -= 2;
             }
+        }
+    }, {
+        key: "changeCollect",
+        value: function changeCollect() {
+            this.isCollection = !this.isCollection;
         }
     }, {
         key: "formatContent",

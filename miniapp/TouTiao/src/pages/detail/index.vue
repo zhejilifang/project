@@ -75,8 +75,12 @@
         <span class="comment-btn">
           <i-icon type="interactive" size="26"/>
         </span>
-        <span class="collect-btn">
-          <i-icon :type="isCollection?'collection_fill':'collection'" size="26"/>
+        <span class="collect-btn" @click="changeCollect">
+          <i-icon
+            :type="isCollection?'collection_fill':'collection'"
+            :color="isCollection?'#FFCA28':''"
+            size="26"
+          />
         </span>
         <button class="share-btn" open-type="share">
           <i-icon type="share" size="26"/>
