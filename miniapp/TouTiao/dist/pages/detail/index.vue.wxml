@@ -1,3 +1,37 @@
 <template name="539d6ff7">
-  <web-view src="{{articleUrl}}" class="_web-view data-v-323c77aa"></web-view>
+  <view class="_div data-v-323c77aa container-detail">
+    <view class="_h1 data-v-323c77aa avatar-title">{{info.title}}</view>
+    <view class="_div data-v-323c77aa avatar-media">
+      <view class="_div data-v-323c77aa media-pic">
+        <image src="{{info.media_user.avatar_url}}" mode="widthFix" class="_img data-v-323c77aa"></image>
+      </view>
+      <view class="_div data-v-323c77aa media-user">
+        <view class="_p data-v-323c77aa screen-name">
+          {{info.media_user.screen_name}}
+          <label wx:if="{{info.media_user.user_auth_info}}" class="_span data-v-323c77aa">{{info.media_user.user_auth_info.auth_info}}</label></view>
+        <view class="_p data-v-323c77aa publish-time">{{publishTime}}</view>
+      </view>
+      <view class="_div data-v-323c77aa action-btns"><button class="_button data-v-323c77aa">A+</button> <button class="_button data-v-323c77aa">A-</button></view>
+    </view>
+    <view class="_div data-v-323c77aa avatar-content">
+      <view class="_div data-v-323c77aa avatar-paragraph" wx:key="index" key="{{index}}" wx:for="{{formatContent}}" wx:for-index="index" wx:for-item="item">
+        <view class="_p data-v-323c77aa avatar-text" wx:if="{{item.type=='text'}}">{{item.content}}</view>
+        <image wx:elif="{{item.type=='image'}}" mode="widthFix" src="{{item.info.src}}" alt="{{item.info.alt}}" class="_img data-v-323c77aa"></image><video wx:elif="{{item.type=='video'}}" src="{{item.info}}" class="_video data-v-323c77aa"></video>
+      </view>
+    </view>
+    <view class="_div data-v-323c77aa avatar-footer">
+      <view class="_div data-v-323c77aa write-comment"><label class="_span data-v-323c77aa editor">
+          <i-icon type="editor" size="18" color="#000" class="_i-icon data-v-323c77aa"></i-icon>
+        </label> <input type="text" placeholder="{{placeholder}}" placeholder-style="color:#333" class="_input data-v-323c77aa" /></view>
+      <view class="_div data-v-323c77aa purpose-btns"><label class="_span data-v-323c77aa comment-btn">
+          <i-icon type="interactive" size="26" class="_i-icon data-v-323c77aa"></i-icon>
+        </label> <label class="_span data-v-323c77aa collect-btn">
+          <i-icon type="{{isCollection?'collection_fill':'collection'}}" size="26" class="_i-icon data-v-323c77aa"></i-icon>
+        </label> <button class="_button data-v-323c77aa share-btn" open-type="share">
+          <i-icon type="share" size="26" class="_i-icon data-v-323c77aa"></i-icon>
+        </button> <label class="_span data-v-323c77aa circle-btn">
+          <i-icon type="share" size="26" class="_i-icon data-v-323c77aa"></i-icon>
+        </label></view>
+    </view>
+  </view>
 </template>

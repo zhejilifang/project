@@ -23,10 +23,11 @@ class newsList extends Vue {
   handleToDetail(url) {
     // console.log(id)
     console.log(url)
-    // wx.navigateTo({ url: '/pages/detail/main?url=' + url });
     let detailId = url.split('/')[url.split('/').length - 2]
     console.log(detailId)
-    this['getDetailList'](detailId)
+    wx.navigateTo({ url: '/pages/detail/main?id=' + detailId });
+
+    // this['getDetailList'](detailId)
   }
 }
 export default newsList

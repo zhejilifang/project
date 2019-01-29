@@ -2,6 +2,79 @@ require("./common/manifest.js")
 require("./common/vendor.js")
 global.webpackJsonp([2],{
 
+/***/ 163:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_assign__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_index__ = __webpack_require__(83);
+
+
+
+
+
+var state = {
+  content: [],
+  info: {},
+  comment: [],
+  comment_count: 0,
+  current: 1
+};
+
+var mutations = {
+  updateState: function updateState(state, info) {
+    state = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_assign___default()(state, info);
+  }
+};
+
+var actions = {
+  getDetailList: function getDetailList(_ref, id) {
+    var _this = this;
+
+    var commit = _ref.commit;
+    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      var res;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["a" /* getDetailList */])(id);
+
+            case 2:
+              res = _context.sent;
+
+              console.log(res);
+              commit('updateState', {
+                comment_count: res.data.comment_count,
+                content: res.data.content,
+                info: res.data
+              });
+
+            case 5:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, _this);
+    }))();
+  }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  namespaced: true,
+  state: state,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
 /***/ 50:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -95,6 +168,8 @@ var Api = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex_dist_logger__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex_dist_logger___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vuex_dist_logger__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_index__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_detail__ = __webpack_require__(163);
+
 
 
 
@@ -105,7 +180,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["d" /* default */].Store({
   modules: {
-    index: __WEBPACK_IMPORTED_MODULE_3__modules_index__["a" /* default */]
+    index: __WEBPACK_IMPORTED_MODULE_3__modules_index__["a" /* default */],
+    detail: __WEBPACK_IMPORTED_MODULE_4__modules_detail__["a" /* default */]
   },
   plugins: [__WEBPACK_IMPORTED_MODULE_2_vuex_dist_logger___default()()]
 }));
@@ -172,11 +248,11 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_core_js_object_define_property__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_babel_runtime_core_js_object_define_property___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_babel_runtime_core_js_object_define_property__);
@@ -256,9 +332,9 @@ App = __decorate([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_vue_property
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getSetting; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getNewsList; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getDetailList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getSetting; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getNewsList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getDetailList; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api__ = __webpack_require__(50);
 
 var getSetting = function getSetting() {
@@ -328,8 +404,7 @@ var state = {
   channels: [],
   currentUrl: '',
   newsList: [],
-  hot_time: '',
-  detailList: []
+  hot_time: ''
 };
 
 var mutations = {
@@ -361,9 +436,6 @@ var mutations = {
       return item.item_id == id;
     });
     state.newsList.splice(index, 1);
-  },
-  goToDetail: function goToDetail(state, detailList) {
-    state.detailList = detailList;
   }
 };
 
@@ -379,7 +451,7 @@ var actions = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["a" /* getSetting */])();
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["b" /* getSetting */])();
 
             case 2:
               channels = _context.sent;
@@ -407,7 +479,7 @@ var actions = {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["b" /* getNewsList */])(url);
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["c" /* getNewsList */])(url);
 
             case 2:
               res = _context2.sent;
@@ -441,7 +513,7 @@ var actions = {
             case 0:
               url += '&max_behot_time=' + state.hot_time;
               _context3.next = 3;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["b" /* getNewsList */])(url);
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["c" /* getNewsList */])(url);
 
             case 3:
               res = _context3.sent;
@@ -457,32 +529,6 @@ var actions = {
           }
         }
       }, _callee3, _this3);
-    }))();
-  },
-  getDetailList: function getDetailList(_ref4, id) {
-    var _this4 = this;
-
-    var commit = _ref4.commit;
-    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
-      var res;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _context4.next = 2;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["c" /* getDetailList */])(id);
-
-            case 2:
-              res = _context4.sent;
-
-              console.log(res);
-
-            case 4:
-            case 'end':
-              return _context4.stop();
-          }
-        }
-      }, _callee4, _this4);
     }))();
   }
 };
