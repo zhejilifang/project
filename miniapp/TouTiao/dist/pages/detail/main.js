@@ -18,7 +18,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "container-detail"
   }, [_c('h1', {
     staticClass: "avatar-title"
-  }, [_vm._v(_vm._s(_vm.info.title))]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.info.title))]), _vm._v(" "), (_vm.info.media_user) ? _c('div', {
     staticClass: "avatar-media"
   }, [_c('div', {
     staticClass: "media-pic"
@@ -35,14 +35,37 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "publish-time"
   }, [_vm._v(_vm._s(_vm.publishTime))])], 1), _vm._v(" "), _c('div', {
     staticClass: "action-btns"
-  }, [_c('button', [_vm._v("A+")]), _vm._v(" "), _c('button', [_vm._v("A-")])], 1)]), _vm._v(" "), _c('div', {
+  }, [_c('button', {
+    staticClass: "add-font-btn",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": function($event) {
+        _vm.changeFont('add')
+      }
+    }
+  }, [_vm._v("A+")]), _vm._v(" "), _c('button', {
+    staticClass: "sub-font-btn",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": function($event) {
+        _vm.changeFont('sub')
+      }
+    }
+  }, [_vm._v("A-")])], 1)]) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "avatar-content"
   }, _vm._l((_vm.formatContent), function(item, index) {
     return _c('div', {
       key: index,
       staticClass: "avatar-paragraph"
     }, [(item.type == 'text') ? _c('p', {
-      staticClass: "avatar-text"
+      staticClass: "avatar-text",
+      style: ({
+        fontSize: _vm.size + 'px'
+      })
     }, [_vm._v(_vm._s(item.content))]) : (item.type == 'image') ? _c('img', {
       attrs: {
         "mode": "widthFix",
@@ -55,6 +78,43 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }) : _vm._e()], 1)
   })), _vm._v(" "), _c('div', {
+    staticClass: "avatar-comment"
+  }, [_c('h1', {
+    staticClass: "comment-title"
+  }, [_c('span', [_vm._v("热门评论")])]), _vm._v(" "), _c('div', {
+    staticClass: "comment-list"
+  }, _vm._l((_vm.comment), function(value, index) {
+    return _c('div', {
+      key: value.id,
+      staticClass: "comment-item"
+    }, [_c('p', {
+      staticClass: "comment-pic"
+    }, [_c('img', {
+      attrs: {
+        "src": value.comment.user_profile_image_url
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "comment-info"
+    }, [_c('p', {
+      staticClass: "comment-user"
+    }, [_c('span', {
+      staticClass: "comment-name"
+    }, [_vm._v(_vm._s(value.comment.user_name))]), _vm._v(" "), _c('span', {
+      staticClass: "comment-praise"
+    }, [_c('i-icon', {
+      staticClass: "praise",
+      attrs: {
+        "type": "praise",
+        "size": "20",
+        "color": "#999",
+        "mpcomid": '0-' + index
+      }
+    }), _vm._v("\n              " + _vm._s(value.comment.digg_count) + "\n            ")], 1)]), _vm._v(" "), _c('p', {
+      staticClass: "comment-cont"
+    }, [_vm._v(_vm._s(value.comment.text))]), _vm._v(" "), _c('p', {
+      staticClass: "comment-time"
+    }, [_vm._v(_vm._s(value.comment.create_time))])], 1)], 1)
+  }))], 1), _vm._v(" "), _c('div', {
     staticClass: "avatar-footer"
   }, [_c('div', {
     staticClass: "write-comment"
@@ -65,13 +125,22 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "type": "editor",
       "size": "18",
       "color": "#000",
-      "mpcomid": '0'
+      "mpcomid": '1'
     }
   })], 1), _vm._v(" "), _c('input', {
     attrs: {
       "type": "text",
       "placeholder": _vm.placeholder,
-      "placeholder-style": "color:#333"
+      "placeholder-style": "color:#333",
+      "eventid": '2'
+    },
+    on: {
+      "focus": function($event) {
+        _vm.placeholder = '优质评论优先展开'
+      },
+      "blur": function($event) {
+        _vm.placeholder = '写评论...'
+      }
     }
   })]), _vm._v(" "), _c('div', {
     staticClass: "purpose-btns"
@@ -81,7 +150,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "type": "interactive",
       "size": "26",
-      "mpcomid": '1'
+      "mpcomid": '2'
     }
   })], 1), _vm._v(" "), _c('span', {
     staticClass: "collect-btn"
@@ -89,7 +158,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "type": _vm.isCollection ? 'collection_fill' : 'collection',
       "size": "26",
-      "mpcomid": '2'
+      "mpcomid": '3'
     }
   })], 1), _vm._v(" "), _c('button', {
     staticClass: "share-btn",
@@ -100,7 +169,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "type": "share",
       "size": "26",
-      "mpcomid": '3'
+      "mpcomid": '4'
     }
   })], 1), _vm._v(" "), _c('span', {
     staticClass: "circle-btn"
@@ -108,7 +177,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "type": "share",
       "size": "26",
-      "mpcomid": '4'
+      "mpcomid": '5'
     }
   })], 1)], 1)])], 1)
 }
@@ -229,15 +298,44 @@ var Detail = function (_Vue) {
 
         var _this = __WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Detail.__proto__ || __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_get_prototype_of___default()(Detail)).apply(this, arguments));
 
-        _this.placeholder = '写评论';
+        _this.placeholder = '写评论...';
         _this.isCollection = false;
+        _this.size = 18;
+        _this.page = 1;
         return _this;
     }
 
     __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default()(Detail, [{
         key: "onShow",
         value: function onShow() {
+            var _this2 = this;
+
             this['getDetailList'](this.$root.$mp.query.id);
+            this['getCommentList']({ id: this.$root.$mp.query.id, page: this.page }).then(function () {
+                console.log('detail-comment', _this2['comment']);
+            });
+        }
+    }, {
+        key: "onReachBottom",
+        value: function onReachBottom() {
+            this.page++;
+            this['getCommentList']({ id: this.$root.$mp.query.id, page: this.page });
+            console.log('detail-comment', this['comment']);
+        }
+    }, {
+        key: "changeFont",
+        value: function changeFont(type) {
+            if (type == 'add') {
+                if (this.size >= 22) {
+                    return;
+                }
+                this.size += 2;
+            } else if (type == 'sub') {
+                if (this.size <= 14) {
+                    return;
+                }
+                this.size -= 2;
+            }
         }
     }, {
         key: "formatContent",
@@ -274,10 +372,14 @@ Detail = __decorate([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9_vue_prope
         },
         info: function info(state) {
             return state['detail'].info;
+        },
+        comment: function comment(state) {
+            return state['detail'].comment;
         }
     })),
     methods: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_assign___default()({}, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_vuex__["b" /* mapActions */])({
-        getDetailList: 'detail/getDetailList'
+        getDetailList: 'detail/getDetailList',
+        getCommentList: 'detail/getCommentList'
     }))
 })], Detail);
 /* harmony default export */ __webpack_exports__["a"] = (Detail);

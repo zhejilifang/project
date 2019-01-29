@@ -6,13 +6,18 @@ global.webpackJsonp([2],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_assign__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_assign__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_index__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_assign__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_assign__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_index__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_index__ = __webpack_require__(167);
+
+
 
 
 
@@ -28,7 +33,7 @@ var state = {
 
 var mutations = {
   updateState: function updateState(state, info) {
-    state = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_object_assign___default()(state, info);
+    state = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_core_js_object_assign___default()(state, info);
   }
 };
 
@@ -37,31 +42,75 @@ var actions = {
     var _this = this;
 
     var commit = _ref.commit;
-    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee() {
       var res;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["a" /* getDetailList */])(id);
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__data_index__["a" /* getDetailList */])(id);
 
             case 2:
               res = _context.sent;
 
-              console.log(res);
+              // console.log(res)
               commit('updateState', {
                 comment_count: res.data.comment_count,
                 content: res.data.content,
                 info: res.data
               });
 
-            case 5:
+            case 4:
             case 'end':
               return _context.stop();
           }
         }
       }, _callee, _this);
+    }))();
+  },
+  getCommentList: function getCommentList(_ref2, _ref3) {
+    var _this2 = this;
+
+    var commit = _ref2.commit,
+        state = _ref2.state;
+    var id = _ref3.id,
+        page = _ref3.page;
+    return __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      var res, formatComment;
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              console.log('id...page', id, page);
+              _context2.next = 3;
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__data_index__["b" /* getCommentList */])(id, page);
+
+            case 3:
+              res = _context2.sent;
+
+              console.log('comment...', res);
+              formatComment = res.data.map(function (item) {
+                if (typeof item.comment.create_time == 'string') {
+                  return item;
+                } else {
+                  item.comment.create_time = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__utils_index__["a" /* formatTime */])(new Date(item.comment.create_time * 1000));
+                  return item;
+                }
+              });
+
+              console.log('formatComment', formatComment);
+              commit('updateState', {
+                comment: page == 1 ? formatComment : [].concat(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default()(state.comment), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default()(formatComment))
+              });
+              console.log('...state', state.comment);
+
+            case 9:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, _callee2, _this2);
     }))();
   }
 };
@@ -72,6 +121,33 @@ var actions = {
   mutations: mutations,
   actions: actions
 });
+
+/***/ }),
+
+/***/ 167:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = formatTime;
+function formatNumber(n) {
+  var str = n.toString();
+  return str[1] ? str : '0' + str;
+}
+
+function formatTime(date) {
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+
+  var t1 = [month, day].map(formatNumber).join('-');
+  var t2 = [hour, minute].map(formatNumber).join(':');
+
+  return t1 + ' ' + t2;
+}
 
 /***/ }),
 
@@ -332,9 +408,10 @@ App = __decorate([__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_vue_property
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getSetting; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getNewsList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getSetting; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getNewsList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getDetailList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getCommentList; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api__ = __webpack_require__(50);
 
 var getSetting = function getSetting() {
@@ -347,6 +424,13 @@ var getNewsList = function getNewsList(url) {
 var getDetailList = function getDetailList(id) {
     // console.log('id...', id);
     return __WEBPACK_IMPORTED_MODULE_0__api__["b" /* fly */].request("https://m.toutiao.com/pwa/api/wxapp/info/" + id + "/");
+};
+var getCommentList = function getCommentList(id) {
+    var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+    var count = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 20;
+
+    // console.log('id...', id);
+    return __WEBPACK_IMPORTED_MODULE_0__api__["b" /* fly */].request("https://ib.snssdk.com/article/v1/tab_comments/?group_id=" + id + "&&tab_index=0&count=" + count + "&offset=" + (page - 1) * count);
 };
 
 /***/ }),
@@ -451,7 +535,7 @@ var actions = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["b" /* getSetting */])();
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["c" /* getSetting */])();
 
             case 2:
               channels = _context.sent;
@@ -479,7 +563,7 @@ var actions = {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["c" /* getNewsList */])(url);
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["d" /* getNewsList */])(url);
 
             case 2:
               res = _context2.sent;
@@ -513,7 +597,7 @@ var actions = {
             case 0:
               url += '&max_behot_time=' + state.hot_time;
               _context3.next = 3;
-              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["c" /* getNewsList */])(url);
+              return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__data_index__["d" /* getNewsList */])(url);
 
             case 3:
               res = _context3.sent;

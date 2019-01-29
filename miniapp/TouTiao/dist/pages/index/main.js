@@ -203,17 +203,16 @@ var Index = function (_Vue) {
     __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_createClass___default()(Index, [{
         key: "onShow",
         value: function onShow() {
+            debug('onShow');
+        }
+    }, {
+        key: "onLoad",
+        value: function onLoad() {
             var _this2 = this;
 
-            debug('onShow');
             this['getSetting']().then(function () {
                 _this2['getNewsList'](_this2['currentUrl']);
             });
-        }
-    }, {
-        key: "mounted",
-        value: function mounted() {
-            debug('mounted');
         }
     }, {
         key: "onReachBottom",
