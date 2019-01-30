@@ -57,6 +57,7 @@ class Index extends Vue {
 
   loadData() {
     let appUrl = this['currentUrl'];
+    console.log(appUrl)
     this['getMore'](appUrl).then(() => {
       this.isRefresh = false;
     }).catch(() => {

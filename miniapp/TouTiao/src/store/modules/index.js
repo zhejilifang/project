@@ -50,6 +50,7 @@ const actions = {
       return JSON.parse(item.content)
     })
     console.log('newsList...', newsList)
+    commit('updateCurrentUrl', url)
     commit('updateNewsList', newsList)
   },
   async getMore({ commit, state }, url) {

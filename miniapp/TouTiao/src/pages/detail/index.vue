@@ -74,6 +74,7 @@
       <div class="purpose-btns">
         <span class="comment-btn">
           <i-icon type="interactive" size="26"/>
+          <b class="comment-count">{{comment.length}}</b>
         </span>
         <span class="collect-btn" @click="changeCollect">
           <i-icon
@@ -98,7 +99,7 @@
 <style lang="less" scoped>
 .container-detail {
   width: 100%;
-  padding: 20px 15px 60px 15px;
+  padding: 20px 10px 60px 10px;
   .avatar-title {
     width: 100%;
     font-size: 24px;
@@ -241,11 +242,11 @@
     align-items: center;
     justify-content: space-between;
     border-top: 1rpx solid #ccc;
-    padding: 6px 0;
+    padding: 6px 10px;
     .write-comment {
       flex: 1;
-      padding: 0 15px;
       height: 100%;
+      padding-right: 15px;
       position: relative;
       input {
         width: 100%;
@@ -269,7 +270,6 @@
       }
     }
     .purpose-btns {
-      padding: 0 15px;
       display: flex;
       align-items: center;
       span,
@@ -283,6 +283,20 @@
       }
       button::after {
         border: none;
+      }
+      .comment-btn {
+        position: relative;
+        .comment-count {
+          position: absolute;
+          right: -4rpx;
+          top: 0;
+          color: #fff;
+          background: red;
+          font-size: 16rpx;
+          line-height: 1;
+          border-radius: 10rpx;
+          padding: 4rpx 10rpx;
+        }
       }
     }
   }

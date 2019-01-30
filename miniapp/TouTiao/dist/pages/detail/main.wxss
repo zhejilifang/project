@@ -1,7 +1,7 @@
 
 .container-detail.data-v-323c77aa {
   width: 100%;
-  padding: 40rpx 30rpx 120rpx 30rpx;
+  padding: 40rpx 20rpx 120rpx 20rpx;
 }
 .container-detail .avatar-title.data-v-323c77aa {
   width: 100%;
@@ -175,14 +175,14 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
   border-top: 1rpx solid #ccc;
-  padding: 12rpx 0;
+  padding: 12rpx 20rpx;
 }
 .container-detail .avatar-footer .write-comment.data-v-323c77aa {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding: 0 30rpx;
   height: 100%;
+  padding-right: 30rpx;
   position: relative;
 }
 .container-detail .avatar-footer .write-comment ._input.data-v-323c77aa {
@@ -213,7 +213,6 @@
   align-items: center;
 }
 .container-detail .avatar-footer .purpose-btns.data-v-323c77aa {
-  padding: 0 30rpx;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -238,4 +237,18 @@
 }
 .container-detail .avatar-footer .purpose-btns ._button.data-v-323c77aa::after {
   border: none;
+}
+.container-detail .avatar-footer .purpose-btns .comment-btn.data-v-323c77aa {
+  position: relative;
+}
+.container-detail .avatar-footer .purpose-btns .comment-btn .comment-count.data-v-323c77aa {
+  position: absolute;
+  right: -4rpx;
+  top: 0;
+  color: #fff;
+  background: red;
+  font-size: 16rpx;
+  line-height: 1;
+  border-radius: 10rpx;
+  padding: 4rpx 10rpx;
 }
