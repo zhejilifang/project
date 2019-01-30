@@ -15,7 +15,7 @@
         <p class="item-info">
           <span class="media-name">{{value.media_name}}</span>
           <span class="comment-count">{{value.comment_count}}评论</span>
-          <span class="item-remove" @click="removeNews(value.item_id)">x</span>
+          <span class="item-remove" @click.stop="removeNews(value.item_id)">x</span>
         </p>
       </div>
       <div class="item-photo" v-if="!value.image_list && value.middle_image">

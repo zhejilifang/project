@@ -48,6 +48,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       on: {
         "click": function($event) {
+          $event.stopPropagation();
           _vm.removeNews(value.item_id)
         }
       }

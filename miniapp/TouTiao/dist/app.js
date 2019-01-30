@@ -108,7 +108,7 @@ var getDetailList = function getDetailList(id) {
 };
 var getCommentList = function getCommentList(id) {
     var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-    var count = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 20;
+    var count = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 10;
 
     // console.log('id...', id);
     return __WEBPACK_IMPORTED_MODULE_0__api__["b" /* fly */].request("https://ib.snssdk.com/article/v1/tab_comments/?group_id=" + id + "&&tab_index=0&count=" + count + "&offset=" + (page - 1) * count);

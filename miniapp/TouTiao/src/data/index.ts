@@ -14,7 +14,7 @@ export let getDetailList = (id) => {
   return fly.request(`https://m.toutiao.com/pwa/api/wxapp/info/${id}/`)
 }
 
-export let getCommentList = (id, page = 1, count = 20) => {
+export let getCommentList = (id, page = 1, count = 10) => {
   // console.log('id...', id);
   return fly.request(`https://ib.snssdk.com/article/v1/tab_comments/?group_id=${id}&&tab_index=0&count=${count}&offset=${(page - 1) * count}`)
 }
