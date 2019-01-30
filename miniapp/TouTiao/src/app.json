@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/index/main",
-    "pages/detail/main"
+    "pages/detail/main",
+    "pages/web/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#D43D3D",
     "navigationBarTitleText": "今日头条",
     "navigationBarTextStyle": "white"
-  }
+  },
+  "navigateToMiniProgramAppIdList": ["wxe5f52902cf4de896"]
 }

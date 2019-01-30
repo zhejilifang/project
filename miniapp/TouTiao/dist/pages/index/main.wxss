@@ -72,6 +72,12 @@
   -ms-flex-align: center;
   align-items: center;
 }
+.go-web,
+.go-miniProgram {
+  width: 100%;
+  padding: 10rpx 30rpx;
+  height: 60rpx;
+}
 .news-cont {
   width: 100%;
 }

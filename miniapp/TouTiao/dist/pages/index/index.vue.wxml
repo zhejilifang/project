@@ -18,6 +18,10 @@
         </view>
       </view>
     </view>
+    <navigator class="_navigator data-v-177fa02f go-miniProgram" app-id="wxe5f52902cf4de896" target="miniProgram" hover-class="none">跳转小程序</navigator>
+    <view class="_div data-v-177fa02f go-web">
+      <navigator url="/pages/web/main?src=https://baidu.com" class="_a data-v-177fa02f">去百度web页面</navigator>
+    </view>
     <view class="_div data-v-177fa02f news-cont"><template data="{{...$root[$kk+'5'], $root}}" is="187f2276"></template></view>
     <view bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_div data-v-177fa02f {{[true ? 'refresh' : '', isRefresh ? 'active' : '']}}">
       <image src="/assets/refresh.png" class="_img data-v-177fa02f"></image>

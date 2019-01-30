@@ -24,6 +24,15 @@
         </div>
       </div>
     </div>
+    <navigator
+      class="go-miniProgram"
+      app-id="wxe5f52902cf4de896"
+      target="miniProgram"
+      hover-class="none"
+    >跳转小程序</navigator>
+    <div class="go-web">
+      <a href="/pages/web/main?src=https://baidu.com">去百度web页面</a>
+    </div>
     <div class="news-cont">
       <NewsList :list="newsList"></NewsList>
     </div>
@@ -88,6 +97,12 @@
       align-items: center;
     }
   }
+}
+.go-web,
+.go-miniProgram {
+  width: 100%;
+  padding: 5px 15px;
+  height: 30px;
 }
 .news-cont {
   width: 100%;
