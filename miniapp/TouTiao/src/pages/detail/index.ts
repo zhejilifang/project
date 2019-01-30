@@ -45,6 +45,7 @@ class Detail extends Vue {
   }
 
   onShow() {
+    this.page = 1;
     this['getDetailList'](this.$root.$mp.query.id)
     this['getCommentList']({ id: this.$root.$mp.query.id, page: this.page }).then(() => {
       console.log('detail-comment', this['comment'])

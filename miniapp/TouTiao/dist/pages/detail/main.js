@@ -118,6 +118,7 @@ var Detail = function (_Vue) {
         value: function onShow() {
             var _this2 = this;
 
+            this.page = 1;
             this['getDetailList'](this.$root.$mp.query.id);
             this['getCommentList']({ id: this.$root.$mp.query.id, page: this.page }).then(function () {
                 console.log('detail-comment', _this2['comment']);
