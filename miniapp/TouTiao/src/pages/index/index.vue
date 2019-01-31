@@ -103,6 +103,8 @@
   width: 100%;
   padding: 5px 15px;
   height: 30px;
+  line-height: 1.5;
+  font-size: 16px;
 }
 .news-cont {
   width: 100%;
