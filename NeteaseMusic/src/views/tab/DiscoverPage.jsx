@@ -46,7 +46,22 @@ function DiscoverPage(props) {
         </div>
       </div>
       <div className={styles.nav_card}>
-
+        <div className={styles.card_item}>
+          <span className={styles.card_item_icon}></span>
+          <span className={styles.card_item_text}>私人FM</span>
+        </div>
+        <div className={styles.card_item}>
+          <span className={styles.card_item_icon}></span>
+          <span className={styles.card_item_text}>每日推荐</span>
+        </div>
+        <div className={styles.card_item}>
+          <span className={styles.card_item_icon}></span>
+          <span className={styles.card_item_text}>歌单</span>
+        </div>
+        <div className={styles.card_item}>
+          <span className={styles.card_item_icon}></span>
+          <span className={styles.card_item_text}>排行榜</span>
+        </div>
       </div>
     </div>
   );

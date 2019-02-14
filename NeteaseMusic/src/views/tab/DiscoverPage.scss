@@ -110,6 +110,51 @@
   width: 100%;
   height: 100px;
   position: relative;
+  display: flex;
+  align-items: center;
+  .card_item {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &:nth-child(1) {
+      .card_item_icon {
+        background-image: url(../../assets/card.png);
+      }
+    }
+    &:nth-child(2) {
+      .card_item_icon {
+        background-image: url(../../assets/recommend.png);
+      }
+    }
+    &:nth-child(3) {
+      .card_item_icon {
+        background-image: url(../../assets/menu.png);
+      }
+    }
+    &:nth-child(4) {
+      .card_item_icon {
+        background-image: url(../../assets/rank.png);
+      }
+    }
+    .card_item_text {
+      font-size: 14px;
+      height: 30px;
+      line-height: 30px;
+      color: #353B3D;
+    }
+    .card_item_icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #353B3D;
+      background-repeat: no-repeat;
+      background-size: 26px 26px;
+      background-position: center center;
+    }
+  }
   &:after {
     content: '';
     width: 100%;
