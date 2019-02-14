@@ -1,0 +1,55 @@
+:global {
+  .container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .footer {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(left, #F4ECEE, #DFDFDF);
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    box-sizing: border-box;
+    a {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      .tab_icon {
+        width: 26px;
+        height: 26px;
+        &.icon_discover {
+          background: url(../assets/discover.png) no-repeat center center;
+          background-size: 20px 20px;
+        }
+        &.icon_video {
+          background: url(../assets/video.png) no-repeat center center;
+          background-size: 20px 20px;
+        }
+        &.icon_mine {
+          background: url(../assets/mine.png) no-repeat center center;
+          background-size: 20px 20px;
+        }
+        &.icon_friend {
+          background: url(../assets/friend.png) no-repeat center center;
+          background-size: 20px 20px;
+        }
+        &.icon_account {
+          background: url(../assets/account.png) no-repeat center center;
+          background-size: 20px 20px;
+        }
+      }
+      .tab_text {
+        font-size: 14px;
+        color: #8a8a8a;
+      }
+    }
+  }
+}

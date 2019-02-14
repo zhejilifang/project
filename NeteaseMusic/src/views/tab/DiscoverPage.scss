@@ -1,0 +1,123 @@
+.discover_page {
+  width: 100%;
+  height: 100%;
+}
+
+.nav_tab {
+  width: 100%;
+  height: 40px;
+  background: #363B3D;
+  margin-top: -1px;
+  .nav {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    span {
+      height: 100%;
+      padding: 0 40px;
+      line-height: 40px;
+    }
+  }
+}
+
+.header {
+  width: 100%;
+  height: 44px;
+  background: #323739;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  color: #fff;
+  .header_mai {
+    width: 24px;
+    height: 24px;
+    background: url(../../assets/maikefeng.png) no-repeat;
+    background-size: cover;
+  }
+  .header_bo {
+    width: 24px;
+    height: 24px;
+    background: url(../../assets/shengyin.png) no-repeat;
+    background-size: cover;
+  }
+  .header_search {
+    flex: 1;
+    padding: 8px 15px;
+    height: 100%;
+    position: relative;
+    .search_model {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: #ADB0B0;
+      display: flex;
+      align-items: center;
+      .search_placeholder {
+        font-weight: 400;
+        padding: 0 8px;
+        font-size: 14px;
+      }
+    }
+    input {
+      width: 100%;
+      height: 100%;
+      background: #5B6061;
+      border: 0;
+      outline: none;
+      border-radius: 14px;
+      text-align: center;
+      font-size: 14px;
+      &::-webkit-input-placeholder {
+        color: #ADB0B0;
+      }
+    }
+  }
+}
+
+.swiper_container {
+  width: 100%;
+  padding: 0 14px;
+  position: relative;
+  margin-top: -1px;
+  .swiper_background {
+    width: 100%;
+    height: 110px;
+    background: #363B3D;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+  .banner {
+    width: 100%;
+    touch-action: none;
+    >div {
+      border-radius: 5px;
+    }
+    img {
+      width: 100%;
+      font-size: 0;
+      border-radius: 5px;
+    }
+  }
+}
+
+.nav_card {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  &:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: scaleY(0.25);
+  }
+}
