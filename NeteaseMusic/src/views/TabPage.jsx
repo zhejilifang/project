@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'dva/router';
 import './TabPage.scss';
-import RouterView from '../router/RouterView';
+import RouterView from '@/router/RouterView';
 
 function TabPage(props) {
   return <div className="container">

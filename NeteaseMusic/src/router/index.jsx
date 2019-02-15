@@ -4,9 +4,9 @@ import { Router } from 'dva/router';
 import RouterView from './RouterView'
 
 // 引入一级路由
-import TabPage from '../views/TabPage'
+import TabPage from '@/views/TabPage'
 // 引入二级路由
-import DiscoverPage from '../views/tab/DiscoverPage'
+import DiscoverPage from '@/views/tab/DiscoverPage'
 
 
 

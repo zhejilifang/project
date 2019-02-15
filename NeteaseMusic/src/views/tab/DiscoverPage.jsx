@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { connect } from 'dva';
 import { Carousel, Icon } from 'antd-mobile';
+import MenuList from "@/components/MenuList/MenuList";
 import styles from './DiscoverPage.scss';
 
 function DiscoverPage(props) {
 
   useEffect(() => {
-    props.getBanner()
+    props.getBanner();
+    props.getPersonalized();
   }, [])
 
   return (
@@ -63,6 +65,9 @@ function DiscoverPage(props) {
           <span className={styles.card_item_text}>排行榜</span>
         </div>
       </div>
+      <div className={styles.list}>
+        <MenuList menuList={props.discover.personalized} />
+      </div>
     </div>
   );
 }
@@ -79,6 +84,11 @@ const mapDispatchToProps = dispatch => {
     getBanner: () => {
       dispatch({
         type: 'discover/getBanner'
+      })
+    },
+    getPersonalized: () => {
+      dispatch({
+        type: 'discover/getPersonalized'
       })
     }
   }
