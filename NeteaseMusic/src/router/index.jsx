@@ -5,6 +5,7 @@ import RouterView from './RouterView'
 
 // 引入一级路由
 import TabPage from '@/views/TabPage'
+import LoginPage from '@/views/LoginPage'
 // 引入二级路由
 import DiscoverPage from '@/views/tab/DiscoverPage'
 
@@ -13,6 +14,9 @@ import DiscoverPage from '@/views/tab/DiscoverPage'
 // 路由配置信息
 let config = {
   routes: [{
+    path: '/login',
+    component: LoginPage
+  }, {
     path: '/tab',
     component: TabPage,
     children: [{
