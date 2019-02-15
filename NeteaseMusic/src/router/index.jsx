@@ -8,6 +8,8 @@ import TabPage from '@/views/TabPage'
 import LoginPage from '@/views/LoginPage'
 // 引入二级路由
 import DiscoverPage from '@/views/tab/DiscoverPage'
+import Login from '@/views/login/Login'
+import Register from '@/views/login/Register'
 
 
 
@@ -15,7 +17,14 @@ import DiscoverPage from '@/views/tab/DiscoverPage'
 let config = {
   routes: [{
     path: '/login',
-    component: LoginPage
+    component: LoginPage,
+    children: [{
+      path: '/login/login',
+      component: Login
+    }, {
+      path: '/login/register',
+      component: Register
+    }]
   }, {
     path: '/tab',
     component: TabPage,
