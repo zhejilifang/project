@@ -14,9 +14,9 @@ function Login(props) {
   let [passwd, setPasswd] = useState('qq465307359...');
 
   useEffect(() => {
-    if (props.status == 'fail') {
+    if (props.status === 'fail') {
       Toast.info('登陆失败!');
-    } else if (props.status == 'ok') {
+    } else if (props.status === 'ok') {
       let redirect = '/tab/discover';
       if (props.location.search) {
         redirect = decodeURIComponent(props.location.search.replace('?redirect=', ''))

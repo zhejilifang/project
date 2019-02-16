@@ -15,7 +15,7 @@ export default {
     setup({ dispatch, history }) {
       return history.listen(({ pathname }) => {
         console.log('pathname...', pathname);
-        if (pathname.indexOf('/login') == -1) {
+        if (pathname.indexOf('/login') === -1) {
           if (!getToken()) {
             dispatch(routerRedux.replace({
               pathname: `/login?redirect=${encodeURIComponent(pathname)}`,
@@ -30,7 +30,7 @@ export default {
     * login({ payload }, { call, put }) {
       let res = yield call(login, payload.phone, payload.passwd);
       console.log('login...', res);
-      if (res.data && res.data.code == 200) {
+      if (res.data && res.data.code === 200) {
         setToken(res.data.account.id);
         yield put({
           type: 'updateState',
