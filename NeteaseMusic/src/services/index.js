@@ -7,3 +7,11 @@ export function getBanner() {
 export function getPersonalized() {
   return request('/personalized')
 }
+
+export function login(phone, password) {
+  return request(`/login/cellphone?phone=${phone}&password=${password}`)
+}
+
+export function loginStatus() {
+  return request('/login/status')
+}
