@@ -8,6 +8,7 @@ import TabPage from '@/views/TabPage'
 import LoginPage from '@/views/LoginPage'
 // 引入二级路由
 import DiscoverPage from '@/views/tab/DiscoverPage'
+import AccountPage from '@/views/tab/AccountPage'
 import Login from '@/views/login/Login'
 import Register from '@/views/login/Register'
 
@@ -42,7 +43,7 @@ let config = {
       component: props => <p>{JSON.stringify(props)}</p>
     }, {
       path: '/tab/account',
-      component: props => <p>{JSON.stringify(props)}</p>
+      component: AccountPage
     }]
   }, {
     path: '*',

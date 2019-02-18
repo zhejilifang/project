@@ -1,0 +1,130 @@
+.account_page {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 50px;
+  background: #FBFCFD;
+}
+
+.header {
+  width: 100%;
+  height: 44px;
+  background: #323739;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  line-height: 44px;
+  font-size: 16px;
+  .header_bo {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: url(../../assets/shengyin.png) no-repeat center center;
+    background-size: 24px 24px;
+  }
+}
+
+.account_info {
+  width: 100%;
+  height: 130px;
+  .user {
+    width: 100%;
+    height: 84px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    .avatar_pic {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+        font-size: 0;
+      }
+    }
+    .user_info {
+      flex: 1;
+      padding-left: 10px;
+      .username {
+        font-size: 18px;
+      }
+      .usergrade {
+        height: 16px;
+        padding: 0 10px;
+        font-size: 12px;
+        border-radius: 8px;
+        color: #999;
+        border: 1px solid #999;
+        text-align: center;
+        line-height: 14px;
+      }
+    }
+    .sign {
+      width: 60px;
+      height: 24px;
+      border: 1px solid #333;
+      border-radius: 12px;
+      background: none;
+      outline: none;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      .sign_icon {
+        width: 24px;
+        height: 24px;
+        background: url(../../assets/qian.png) no-repeat center center;
+        background-size: 14px 14px;
+      }
+    }
+  }
+  .information {
+    width: 100%;
+    height: 46px;
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    .information_item {
+      flex: 1;
+      height: 100%;
+      border-right: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &:nth-child(4) {
+        border: 0;
+        span {
+          &.change_info_icon {
+            width: 14px;
+            height: 14px;
+            background: url(../../assets/noun__cc.png) no-repeat center center;
+            background-size: 12px 12px;
+          }
+        }
+      }
+      span {
+        &.dynamic,
+        &.follows,
+        &.fans,
+        &.my_information {
+          color: #999;
+          font-size: 12px;
+        }
+      }
+      span {
+        &.dynamic_count,
+        &.follows_count,
+        &.fans_count,
+        &.my_information {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
