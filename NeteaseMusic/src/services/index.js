@@ -15,3 +15,7 @@ export function login(phone, password) {
 export function loginStatus() {
   return request('/login/status')
 }
+
+export function getUserDetail(userId) {
+  return request(`/user/detail?uid=${userId}`)
+}
