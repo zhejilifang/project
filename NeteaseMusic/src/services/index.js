@@ -19,3 +19,15 @@ export function loginStatus() {
 export function getUserDetail(userId) {
   return request(`/user/detail?uid=${userId}`)
 }
+
+export function searchResult(keywords) {
+  return request(`/search?keywords=${keywords}`)
+}
+
+export function searchSuggest(keywords) {
+  return request(`/search/suggest?keywords=${keywords}&type=mobile`)
+}
+
+export function searchHot() {
+  return request('/search/hot')
+}

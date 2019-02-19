@@ -6,6 +6,8 @@ import RouterView from './RouterView'
 // 引入一级路由
 import TabPage from '@/views/TabPage'
 import LoginPage from '@/views/LoginPage'
+import SearchPage from '@/views/SearchPage'
+import PlayPage from '@/views/PlayPage'
 // 引入二级路由
 import DiscoverPage from '@/views/tab/DiscoverPage'
 import AccountPage from '@/views/tab/AccountPage'
@@ -26,6 +28,12 @@ let config = {
       path: '/login/register',
       component: Register
     }]
+  }, {
+    path: '/search',
+    component: SearchPage
+  }, {
+    path: '/play',
+    component: PlayPage
   }, {
     path: '/tab',
     component: TabPage,

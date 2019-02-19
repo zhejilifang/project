@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>手动封装，实现SPA路由</title>
+</head>
+
+<body>
+  <!-- 导航区域 -->
+  <div class="router_box">
+    <a href="/home.html" class="router" replace="true">主页</a>
+    <a href="/news.html" class="router">新闻</a>
+    <a href="/team.html" class="router">团队</a>
+    <a href="/about.html" class="router">关于</a>
+    <a href="/undefined.html" class="router">未配置</a>
+  </div>
+  <!-- 路由区域 -->
+  <div id="router-view"></div>
+  <script>
+    // 封装路由
+    function Router(options) {
+      // 获取路由模式
+      this.mode = options.mode || 'hash';
+      // 获取路由列表
+      this.routes = options.routes || [];
+      // 初始化路由监听
+      this.init = function() {
+        //1.无刷新更改页面地址
+        [...document.querySelectorAll('a')].forEach(item => {
+            item.addEventListener('click', e => {
+              // 阻止默认行为
+              if (e && e.preventDefault) {
+                e.preventDefault();
+              } else {
+                e.returnValue = false;
+              }
+              let hash = item.getAttribute('href'),
+                isReplace = item.getAttribute('replace');
+              // 判断路由模式
+              if (this.mode == 'hash') {
+                if (!isReplace) {
+                  // 追加历史记录
+                  window.location.hash = hash;
+                } else {
+                  var i = window.location.href.indexOf('#');
+                  // 通过replcae方法改变地址,就能实现替换的效果
+                  window.location.replace(
+                    window.location.href.slice(0, i > 0 ? i : window.location.href.length) + '#' + hash
+                  )
+                }
+              } else {
+                if (!isReplace) {
+                  // 追加历史记录
+                  window.history.pushState({}, '', hash);
+                } else {
+                  // 替换历史记录
+                  window.history.replaceState({}, '', hash);
+                }
+                this.historyChange();
+              }
+            })
+          })
+          // 2.更新内容
+        if (this.mode == 'hash') {
+          window.addEventListener('hashchange', () => {
+            // 获取当前路由路径
+            let hash = window.location.hash.slice(1);
+            // 在路由表中查找匹配项
+            let index = this.routes.findIndex(item => item.path == hash);
+            if (index != -1) {
+              // 查找到，更新视图
+              document.querySelector('#router-view').innerHTML = this.routes[index].component;
+            } else {
+              // 查找是否有重定向配置
+              let redirect = this.routes.findIndex(item => item.path == '*');
+              if (redirect != -1) {
+                var i = window.location.href.indexOf('#');
+                // 通过replcae方法改变地址,就能实现替换的效果
+                window.location.replace(
+                  window.location.href.slice(0, i > 0 ? i : window.location.href.length) + '#' + this.routes[redirect].redirect
+                )
+              }
+            }
+          })
+        } else {
+          window.addEventListener('popstate', () => {
+            this.historyChange();
+          })
+        }
+      }
+      this.historyChange = function() {
+        // 获取当前路由路径
+        let path = window.location.pathname;
+        // 在路由表中查找匹配项
+        let index = this.routes.findIndex(item => item.path == path);
+        if (index != -1) {
+          // 查找到，更新视图
+          document.querySelector('#router-view').innerHTML = this.routes[index].component;
+        } else {
+          // 查找是否有重定向配置
+          let redirect = this.routes.findIndex(item => item.path == '*');
+          if (redirect != -1) {
+            window.history.replaceState({}, '', this.routes[redirect].redirect);
+            this.historyChange();
+          }
+        }
+      }
+      this.init();
+    }
+    // 调用路由
+    new Router({
+      mode: 'history',
+      routes: [{
+        path: '/home.html',
+        component: '<h1>主页</h1><h4>新一代前端工程师：我们啥都会</h4>'
+      }, {
+        path: '/news.html',
+        component: '<h1>新闻</h1><h4>今天2018-11-5，上课还得穿工装</h4>'
+      }, {
+        path: '/team.html',
+        component: '<h1>团队</h1><h4>WEB前端工程师</h4>'
+      }, {
+        path: '/about.html',
+        component: '<h1>关于</h1><h4>一面而高薪就业</h4>'
+      }, {
+        path: '*',
+        redirect: '/team.html'
+      }]
+    });
+  </script>
+</body>
+
+</html>

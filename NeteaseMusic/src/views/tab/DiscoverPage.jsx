@@ -11,17 +11,20 @@ function DiscoverPage(props) {
     props.getPersonalized();
   }, [])
 
+  function goSearch() {
+    props.history.push('/search')
+  }
+
   return (
     <div className={styles.discover_page}>
       <header className={styles.header}>
         <span className={styles.header_mai}>
         </span>
-        <p className={styles.header_search}>
+        <p className={styles.header_search} onClick={() => goSearch()}>
           <span className={styles.search_model}>
             <Icon type="search" size="xxs" className={styles.search_icon}></Icon>
             <b className={styles.search_placeholder}>猜你喜欢 浮生</b>
           </span>
-          <input type="text" />
         </p>
         <span className={styles.header_bo}>
         </span>
