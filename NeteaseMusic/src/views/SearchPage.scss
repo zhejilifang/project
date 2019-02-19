@@ -79,6 +79,9 @@
       height: 40px;
       line-height: 40px;
       border-bottom: 1px solid #eee;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }
@@ -94,6 +97,9 @@
       height: 40px;
       line-height: 40px;
       border-bottom: 1px solid #eee;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }
