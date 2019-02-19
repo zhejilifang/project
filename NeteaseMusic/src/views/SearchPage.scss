@@ -82,6 +82,12 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      .suggest_item_text {
+        height: 100%;
+        padding-left: 8px;
+      }
     }
   }
 }

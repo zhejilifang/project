@@ -29,7 +29,6 @@ function SearchPage(props) {
   }
 
   function searchResult(e) {
-    console.log('e...', e, e.keyCode)
     if (e.keyCode === 13 && search) {
       setShowSuggest(false);
       setShowResult(true);
@@ -67,7 +66,10 @@ function SearchPage(props) {
         <div className={styles.search_suggest} onClick={getSearchResult}>
           {showSuggest ? <div className={styles.suggest_cont}>{
             props.search.searchSuggest.map((item, index) => {
-              return <p className={styles.suggest_item} key={index} data-name={item.name}>{item.name}</p>
+              return <p className={styles.suggest_item} key={index} data-name={item.name}>
+                <Icon type="search" color="#999" size="xs" />
+                <span className={styles.suggest_item_text}>{item.name}</span>
+              </p>
             })
           }</div> : null}
         </div>

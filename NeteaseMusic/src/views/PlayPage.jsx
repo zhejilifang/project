@@ -2,11 +2,13 @@ import React from 'react';
 import styles from "./PlayPage.scss";
 import { connect } from "dva";
 
-function SearchPage(props) {
+function PlayPage(props) {
 
   return (
     <div className="container">
-      this is play page
+      <div className={styles.play_page}>
+        this is play page
+      </div>
     </div>
   )
 }
@@ -22,4 +24,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(PlayPage);
