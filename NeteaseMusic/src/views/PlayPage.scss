@@ -81,6 +81,10 @@
       height: 200px;
       background-size: cover;
       border-radius: 50%;
+      animation: rotateAlbum 3s linear infinite;
+      &.disable {
+        animation-play-state: paused;
+      }
     }
   }
 }
@@ -139,7 +143,7 @@
     height: 60px;
     display: flex;
     align-items: center;
-    .set_item {
+    span {
       flex: 1;
       height: 100%;
       background-size: 24px 24px;
@@ -152,9 +156,13 @@
         background-size: 26px 26px;
         background-image: url(../assets/prev_song.png);
       }
-      &:nth-child(3) {
+      &.set_play {
         background-size: 32px 32px;
         background-image: url(../assets/play.png);
+      }
+      &.set_pause {
+        background-size: 32px 32px;
+        background-image: url(../assets/pause.png);
       }
       &:nth-child(4) {
         background-size: 26px 26px;
@@ -172,4 +180,13 @@
   position: absolute;
   left: 0;
   top: 60px;
+}
+
+@keyframes rotateAlbum {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
 }
