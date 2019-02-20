@@ -31,3 +31,11 @@ export function searchSuggest(keywords) {
 export function searchHot() {
   return request('/search/hot')
 }
+
+export function songDetail(ids) {
+  return request(`/song/detail?ids=${ids}`)
+}
+
+export function songUrl(id) {
+  return request(`/song/url?id=${id}`)
+}

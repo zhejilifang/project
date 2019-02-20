@@ -30,14 +30,17 @@ export default {
       console.log('suggest...', data, payload);
       // 拼接一下搜索建议
       let suggest = [];
-      let result = data.data.result;
-      result.order.forEach((item, index) => {
-        // 类型拼接到数据里
-        result[item].forEach(value => {
-          value.type = item
+
+      if (Object.keys(data.data.result).length) {
+        let result = data.data.result;
+        result.order.forEach((item, index) => {
+          // 类型拼接到数据里
+          result[item].forEach(value => {
+            value.type = item
+          })
+          suggest = [...suggest, ...result[item]]
         })
-        suggest = [...suggest, ...result[item]]
-      })
+      }
       yield put({
         type: 'updateState',
         payload: {

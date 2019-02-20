@@ -13,6 +13,7 @@ app.model(require('./models/discover').default);
 app.model(require('./models/login').default);
 app.model(require('./models/account').default);
 app.model(require('./models/search').default);
+app.model(require('./models/play').default);
 
 // 4. Router
 app.router(require('./router/index.jsx').default);

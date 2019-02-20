@@ -36,7 +36,7 @@ let config = {
     path: '/search',
     component: SearchPage
   }, {
-    path: '/play',
+    path: '/play/:ids?',
     component: PlayPage
   }, {
     path: '/tab',
