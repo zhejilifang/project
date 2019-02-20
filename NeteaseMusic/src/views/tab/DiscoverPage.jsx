@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
-import { connect } from 'dva';
-import { Carousel, Icon } from 'antd-mobile';
-import MenuList from "@/components/MenuList/MenuList";
+import React from 'react';
+import { NavLink } from 'dva/router';
+import { Icon } from 'antd-mobile';
 import styles from './DiscoverPage.scss';
+import RouterView from '@/router/RouterView';
+
 
 function DiscoverPage(props) {
-
-  useEffect(() => {
-    props.getBanner();
-    props.getPersonalized();
-  }, [])
 
   function goSearch() {
     props.history.push('/search')
@@ -29,48 +25,13 @@ function DiscoverPage(props) {
         <span className={styles.header_bo}>
         </span>
       </header>
-      <div className={styles.nav_tab}>
-        <nav className={styles.nav}>
-          <span>个性推荐</span>
-          <span>主播电台</span>
+      <div className="nav_tab">
+        <nav className="nav">
+          <NavLink to="/tab/discover/recomment"><span>个性推荐</span></NavLink>
+          <NavLink to="/tab/discover/radio"><span>主播电台</span></NavLink>
         </nav>
       </div>
-      <div className={styles.swiper_container}>
-        <div className={styles.swiper_background}></div>
-        <div className={styles.banner}>
-          <Carousel
-            autoplay
-            infinite
-          >{
-              props.discover.banner.map((item, index) => {
-                return <a key={index} href={item.url ? item.url : 'javascript:void(0)'}>
-                  <img src={item.imageUrl} alt={item.typeTitle} />
-                </a>
-              })
-            }</Carousel>
-        </div>
-      </div>
-      <div className={styles.nav_card}>
-        <div className={styles.card_item}>
-          <span className={styles.card_item_icon}></span>
-          <span className={styles.card_item_text}>私人FM</span>
-        </div>
-        <div className={styles.card_item}>
-          <span className={styles.card_item_icon}></span>
-          <span className={styles.card_item_text}>每日推荐</span>
-        </div>
-        <div className={styles.card_item}>
-          <span className={styles.card_item_icon}></span>
-          <span className={styles.card_item_text}>歌单</span>
-        </div>
-        <div className={styles.card_item}>
-          <span className={styles.card_item_icon}></span>
-          <span className={styles.card_item_text}>排行榜</span>
-        </div>
-      </div>
-      <div className={styles.list}>
-        <MenuList menuList={props.discover.personalized} />
-      </div>
+      <RouterView routes={props.routes}></RouterView>
     </div>
   );
 }
@@ -78,23 +39,6 @@ function DiscoverPage(props) {
 DiscoverPage.propTypes = {
 };
 
-const mapStateToProps = state => {
-  return state
-}
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getBanner: () => {
-      dispatch({
-        type: 'discover/getBanner'
-      })
-    },
-    getPersonalized: () => {
-      dispatch({
-        type: 'discover/getPersonalized'
-      })
-    }
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(DiscoverPage);
+export default DiscoverPage;

@@ -13,6 +13,10 @@ import DiscoverPage from '@/views/tab/DiscoverPage'
 import AccountPage from '@/views/tab/AccountPage'
 import Login from '@/views/login/Login'
 import Register from '@/views/login/Register'
+// 引入三级路由
+import Recomment from '@/views/tab/discover/Recomment'
+import Radio from '@/views/tab/discover/Radio'
+
 
 
 
@@ -39,7 +43,14 @@ let config = {
     component: TabPage,
     children: [{
       path: '/tab/discover',
-      component: DiscoverPage
+      component: DiscoverPage,
+      children: [{
+        path: "/tab/discover/recomment",
+        component: Recomment
+      }, {
+        path: "/tab/discover/radio",
+        component: Radio
+      }]
     }, {
       path: '/tab/video',
       component: props => <p>{JSON.stringify(props)}</p>
@@ -55,7 +66,7 @@ let config = {
     }]
   }, {
     path: '*',
-    redirect: '/tab/discover'
+    redirect: '/tab/discover/recomment'
   }]
 }
 

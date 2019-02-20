@@ -7,7 +7,7 @@ function TabPage(props) {
   return <div className="container">
     <RouterView routes={props.routes}></RouterView>
     <footer className="footer">
-      <NavLink to="/tab/discover">
+      <NavLink to="/tab/discover/recomment">
         <span className="tab_icon icon_discover"></span>
         <span className="tab_text">发现</span>
       </NavLink>
