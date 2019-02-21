@@ -19,7 +19,7 @@ function PlayPage(props) {
 
   useEffect(() => {
     console.log(progress, duration);
-    if (progress && (Math.ceil(progress) === duration)) {
+    if (progress && (Math.round(progress) === duration)) {
       setIsPlay(false);
     }
   }, [progress]);
@@ -42,11 +42,11 @@ function PlayPage(props) {
   }
 
   function timeUpdate() {
-    setProgress(audioEle.current.currentTime);
+    setProgress(Math.round(audioEle.current.currentTime));
   }
 
   function loadAudio() {
-    setDuration(Math.ceil(audioEle.current.duration));
+    setDuration(Math.round(audioEle.current.duration));
   }
 
   function progressChange(e) {
