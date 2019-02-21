@@ -50,6 +50,7 @@ function SearchPage(props) {
       props.history.push({
         pathname: `/play/${e.target.dataset.id}`
       })
+      props.addSongList({ ids: props.search.searchResult.map(item => item.id).join(',') })
     }
   }
 
@@ -122,6 +123,12 @@ const mapDispatchToProps = dispatch => {
     searchResult: payload => {
       dispatch({
         type: 'search/searchResult',
+        payload
+      })
+    },
+    addSongList: payload => {
+      dispatch({
+        type: 'play/songDetail',
         payload
       })
     }

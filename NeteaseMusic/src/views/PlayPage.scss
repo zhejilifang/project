@@ -15,14 +15,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 99;
   .play_back {
     width: 44px;
     height: 44px;
     background: url(../assets/zuo.png) no-repeat center center;
     background-size: 20px 20px;
+    flex-shrink: 0;
   }
   .play_title {
     flex: 1;
+    overflow: auto;
     height: 44px;
     display: flex;
     flex-direction: column;
@@ -31,6 +34,7 @@
     color: #fff;
     line-height: 1.2;
     .song_name {
+      text-align: center;
       font-size: 18px;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -38,6 +42,7 @@
     }
     .song_author {
       font-size: 12px;
+      text-align: center;
     }
   }
   .play_share {
@@ -45,6 +50,7 @@
     height: 44px;
     background: url(../assets/fenxiang.png) no-repeat center center;
     background-size: 20px 20px;
+    flex-shrink: 0;
   }
 }
 
@@ -81,7 +87,7 @@
       height: 200px;
       background-size: cover;
       border-radius: 50%;
-      animation: rotateAlbum 3s linear infinite;
+      animation: rotateAlbum 8s linear infinite;
       &.disable {
         animation-play-state: paused;
       }
@@ -100,6 +106,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 99;
   .song_operation {
     width: 100%;
     height: 44px;
@@ -149,8 +156,14 @@
       background-size: 24px 24px;
       background-position: center center;
       background-repeat: no-repeat;
-      &:nth-child(1) {
-        background-image: url(../assets/xunhuan.png);
+      &.set_cycle_list {
+        background-image: url(../assets/list_cycle.png);
+      }
+      &.set_cycle_single {
+        background-image: url(../assets/single_cycle.png);
+      }
+      &.set_cycle_random {
+        background-image: url(../assets/random_cycle.png);
       }
       &:nth-child(2) {
         background-size: 26px 26px;
@@ -175,11 +188,39 @@
   }
 }
 
+.song_lyric {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  padding: 44px 0 180px 0;
+  background: rgba(0, 0, 0, 0);
+  .lyric_list {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    >div {
+      width: 100%;
+      height: 100%;
+    }
+    .lyric_item {
+      width: 100%;
+      text-align: center;
+      height: 36px;
+      line-height: 36px;
+    }
+  }
+}
+
 .song_audio {
   width: 100%;
   position: absolute;
-  left: 0;
-  top: 60px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -9999;
 }
 
 @keyframes rotateAlbum {

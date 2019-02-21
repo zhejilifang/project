@@ -39,3 +39,7 @@ export function songDetail(ids) {
 export function songUrl(id) {
   return request(`/song/url?id=${id}`)
 }
+
+export function songLyric(id) {
+  return request(`/lyric?id=${id}`)
+}

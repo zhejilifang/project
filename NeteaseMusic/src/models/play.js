@@ -1,21 +1,23 @@
-import { songDetail, songUrl } from '@/services/index'
+import { songDetail, songUrl, songLyric } from '@/services/index'
 
 export default {
   // 模块的命名空间
   namespace: 'play',
 
   state: {
+    mode: 0,
+    current: -1,
     song: {},
-    songs: []
+    songs: window.localStorage.getItem('songList') && JSON.parse(window.localStorage.getItem('songList')) || []
   },
 
   // 异步操作，用generator函数去控制时序
   effects: {
-    * songDetail({ payload }, { call, put }) {
+    * songDetail({ payload }, { call, put, select }) {
       let data = yield call(songDetail, payload.ids);
       let urls = yield call(songUrl, payload.ids);
-      console.log('songDetail...', data, urls);
-      // 把播放url放到歌曲详情里
+      let state = yield select(state => state.play);
+      console.log('songDetail...', data, urls, state);
       data.data.songs.forEach(item => {
         urls.data.data.forEach(value => {
           if (item.id === value.id) {
@@ -23,12 +25,28 @@ export default {
           }
         })
       })
-      yield put({
-        type: 'updateState',
-        payload: {
-          song: data.data.songs[0],
+
+      for (let i = 0, len = data.data.songs.length; i < len; i++) {
+        let lyric = yield call(songLyric, data.data.songs[i].id);
+        data.data.songs[i].lyric = lyric.data.lrc.lyric.split('\n');
+      }
+
+      if (payload.ids.indexOf(',') !== -1) {
+        window.localStorage.setItem('songList', JSON.stringify(data.data.songs))
+        state = {
           songs: data.data.songs
         }
+      } else {
+        let current = state.songs.findIndex(item => item.id === data.data.songs[0].id)
+        console.log('select...', current, state.songs, data.data.songs[0]);
+        state = {
+          song: data.data.songs[0],
+          current
+        }
+      }
+      yield put({
+        type: 'updateState',
+        payload: state
       })
     }
   },
@@ -37,6 +55,20 @@ export default {
   reducers: {
     updateState(state, { payload }) {
       return {...state, ...payload }
+    },
+    changeSong(state, { payload }) {
+      let current = 0;
+      console.log('type...', payload, state.mode, state.current);
+      if (state.mode === 1) {
+        if (payload === 'prev') {
+          current = (state.current - 1 + state.songs.length) % state.songs.length;
+        } else {
+          current = (state.current + 1) % state.songs.length;
+        }
+      } else {
+        current = Math.round(Math.random() * state.songs.length);
+      }
+      return {...state, current, song: state.songs[current] }
     }
   },
 };
