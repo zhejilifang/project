@@ -3,8 +3,12 @@ import styles from './SongList.scss';
 
 const SongList = ({ songList, current, changeShowSongList }) => {
   // console.log('songList....', songList);
+  function changeList(e) {
+    e.stopPropagation();
+    changeShowSongList(false)
+  }
   return (
-    <div className={styles.song_model} onClick={() => changeShowSongList(false)}>
+    <div className={styles.song_model} onClick={changeList}>
       <div className={styles.song_container} onClick={e => e.stopPropagation()}>
         <div className={styles.song_list}>
           {

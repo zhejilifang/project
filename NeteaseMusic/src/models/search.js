@@ -14,7 +14,7 @@ export default {
   // 异步操作，用generator函数去控制时序
   effects: {
     // 获取热门搜索
-    * searchHot(action, { call, put }) {
+    * searchHot(_, { call, put }) {
       let data = yield call(searchHot);
       console.log('data...', data);
       yield put({

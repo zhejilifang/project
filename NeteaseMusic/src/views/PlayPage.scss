@@ -43,6 +43,9 @@
     .song_author {
       font-size: 12px;
       text-align: center;
+      &.song_au {
+        color: red;
+      }
     }
   }
   .play_share {

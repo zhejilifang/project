@@ -27,8 +27,10 @@ export default {
       })
 
       for (let i = 0, len = data.data.songs.length; i < len; i++) {
+        console.log('data.data.songs..', data.data.songs)
         let lyric = yield call(songLyric, data.data.songs[i].id);
-        data.data.songs[i].lyric = lyric.data.lrc.lyric.split('\n');
+        console.log('lyric...', lyric);
+        // data.data.songs[i].lyric = lyric.data.lrc.lyric;
       }
 
       if (payload.ids.indexOf(',') !== -1) {

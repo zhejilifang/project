@@ -54,6 +54,7 @@ function PlayPage(props) {
 
   function loadAudio() {
     setDuration(audioEle.current.duration);
+    // audioEle.current.play();
   }
 
   function progressChange(e) {
@@ -105,7 +106,7 @@ function PlayPage(props) {
           <span className={styles.play_back} onClick={() => goBack()}></span>
           <p className={styles.play_title}>
             <marquee scrollamount="3" behavior="scroll" width="180" className={styles.song_name}>{props.song.name}</marquee>
-            <span className={styles.song_author}>{props.song.ar[0].name}</span>
+            <span className={[`${styles.song_author}`, `${styles.song_au}`].join(' ')}>{props.song.ar[0].name}</span>
           </p>
           <span className={styles.play_share}></span>
         </header>
@@ -146,7 +147,7 @@ function PlayPage(props) {
             <span className={styles.set_songList} onClick={() => setShowSongList(!showSongList)}></span>
           </div>
         </div>
-        {
+        {/* {
           showSongLyric ? <div className={styles.song_lyric}>
             <div className={styles.lyric_list}>
               <Carousel className="my-carousel"
@@ -158,16 +159,16 @@ function PlayPage(props) {
                 infinite
               >
                 {
-                  props.song.lyric.map(item => {
+                  props.song.lyric.map((item, index) => {
                     return (
-                      <p className={styles.lyric_item}>{item}</p>
+                      <p key={index} className={styles.lyric_item}>{item}</p>
                     )
                   })
                 }
               </Carousel>
             </div>
           </div> : null
-        }
+        } */}
         <div className={styles.song_audio}>
           <audio src={props.song.url} ref={audioEle} autoPlay onTimeUpdate={timeUpdate} onCanPlay={loadAudio}></audio>
         </div>

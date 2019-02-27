@@ -1,12 +1,16 @@
 import dva from 'dva';
 import './index.css';
 import 'antd-mobile/dist/antd-mobile.css';
+// import VConsole from "vConsole";
+
 
 // 1. Initialize
 const app = dva();
 
 // 2. Plugins
 // app.use({});
+
+// let vConsole = new VConsole();
 
 // 3. Model
 app.model(require('./models/discover').default);
