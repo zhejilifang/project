@@ -8,6 +8,7 @@ import RouterView from '@/router/RouterView';
 function DiscoverPage(props) {
 
   function goSearch() {
+    window._hmt.push(['_trackEvent', '去搜索页', 'click', '网易云音乐'])
     props.history.push('/search')
   }
 

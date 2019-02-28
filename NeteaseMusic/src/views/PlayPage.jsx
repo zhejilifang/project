@@ -68,6 +68,7 @@ function PlayPage(props) {
   }
 
   function changeMode() {
+    window._hmt.push(['_trackEvent', '切换模式', 'click', '网易云音乐'])
     props.changeMode({ mode: (props.mode + 1) % 3 })
   }
 
