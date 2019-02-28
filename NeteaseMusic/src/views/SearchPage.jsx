@@ -30,6 +30,7 @@ function SearchPage(props) {
 
   function searchResult(e) {
     if (e.keyCode === 13 && search) {
+      window._hmt.push(['_trackEvent', '歌曲搜索', 'click', '网易云音乐'])
       setShowSuggest(false);
       setShowResult(true);
       setShowHots(false);
@@ -47,6 +48,7 @@ function SearchPage(props) {
 
   function goPlay(e) {
     if (e.target.tagName.toUpperCase() === 'P') {
+      window._hmt.push(['_trackEvent', '点击播放', 'click', '网易云音乐'])
       props.history.push({
         pathname: `/play/${e.target.dataset.id}`
       })

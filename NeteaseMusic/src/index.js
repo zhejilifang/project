@@ -1,6 +1,6 @@
 import dva from 'dva';
 import './index.css';
-import 'antd-mobile/dist/antd-mobile.css';
+// import 'antd-mobile/dist/antd-mobile.css';
 // import VConsole from "vConsole";
 
 

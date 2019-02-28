@@ -17,3 +17,7 @@ export function formatTime(time) {
     sec = Math.ceil(time % 60);
   return `${min>9?min:'0'+min}:${sec>9?sec:'0'+sec}`
 }
+
+export function lazyImage(imgUrl) {
+
+}

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "antd-mobile": "^2.2.8",
+    "babel-plugin-import": "^1.11.0",
     "chalk": "^2.4.2",
     "dva": "^2.4.1",
     "js-cookie": "^2.2.0",
